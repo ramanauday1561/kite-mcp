@@ -1,0 +1,1197 @@
+{
+  "generated_at": "2026-09-21T11:42:39.414404+05:30",
+  "generated_at_ist": "21 Sep 2026, 11:42 AM IST",
+  "index": "NIFTY 50",
+  "session_date": "2026-09-21",
+  "spot": 23403.2,
+  "change_pct": 0.24,
+  "regime": "low_vol",
+  "recommendation": {
+    "action": "NO_TRADE",
+    "bias": "PUT",
+    "confidence": 0.5432,
+    "probability_up": 0.4568,
+    "reason": "Standing aside: calibrated edge 54% is below the 55% minimum.",
+    "calibration_basis": "6 resolved signals in this score band (observed 65% up)"
+  },
+  "ensemble": {
+    "score": -0.3024,
+    "participation": 0.846,
+    "active": 11,
+    "bullish_votes": 1,
+    "bearish_votes": 9,
+    "neutral_votes": 1,
+    "agreement": 0.818,
+    "contributions": {
+      "ema_trend": -0.0296,
+      "macd_momentum": -0.0704,
+      "rsi_reversion": -0.0506,
+      "donchian_breakout": -0.0165,
+      "supertrend": -0.0296,
+      "adx_di": -0.0283,
+      "bollinger": -0.0094,
+      "volatility_regime": 0.003,
+      "price_action": 0.0185,
+      "momentum_roc": -0.0853,
+      "seasonality": -0.0045
+    }
+  },
+  "trade": {
+    "structure": "long_option",
+    "option_type": "PE",
+    "direction": "PUT",
+    "strike": 23350.0,
+    "atm_strike": 23400.0,
+    "expiry": "2026-09-22",
+    "days_to_expiry": 1,
+    "iv_used_pct": 11.46,
+    "theoretical_premium": 31.87,
+    "delta": -0.3401,
+    "gamma": 0.00261,
+    "theta_per_day": -24.3,
+    "vega": 4.49,
+    "atm_premium": 52.39,
+    "stop_loss": 20.72,
+    "target": 52.59,
+    "lot_size": 75,
+    "suggested_lots": 3,
+    "capital_at_risk": 2508.75,
+    "premium_outlay": 7170.75,
+    "capital_deployed_pct": 3.585,
+    "breakeven": 23318.13,
+    "notes": [
+      "Theta burns about Rs 24.3 per day per unit (Rs 1,822 per lot) \u2014 this is a 1-day view, not a hold.",
+      "Expiry is within a day: gamma is extreme and premium decays fast. Size down or roll to the next series."
+    ]
+  },
+  "expiry": {
+    "date": "2026-09-22",
+    "days_to_expiry": 1,
+    "source": "calculated"
+  },
+  "votes": [
+    {
+      "name": "momentum_roc",
+      "label": "Rate of Change",
+      "score": -0.39128201100065974,
+      "confidence": 0.5912820110006598,
+      "rationale": "5-day ROC +0.02%, 20-day ROC -3.50%, price z-score -0.9.",
+      "abstained": false,
+      "weight": 0.2058,
+      "contribution": -0.0853,
+      "hit_rate": 0.5176,
+      "sample": 14.78
+    },
+    {
+      "name": "macd_momentum",
+      "label": "MACD Momentum",
+      "score": -0.34137165690224336,
+      "confidence": 0.5413716569022433,
+      "rationale": "MACD -247.0 vs signal -209.3; histogram -37.7 and contracting \u2014 momentum is leaning down.",
+      "abstained": false,
+      "weight": 0.1947,
+      "contribution": -0.0704,
+      "hit_rate": 0.5172,
+      "sample": 15.22
+    },
+    {
+      "name": "rsi_reversion",
+      "label": "RSI Mean Reversion",
+      "score": -0.24986265303241184,
+      "confidence": 0.44986265303241185,
+      "rationale": "RSI(14) neutral zone at 36, mildly negative.",
+      "abstained": false,
+      "weight": 0.191,
+      "contribution": -0.0506,
+      "hit_rate": 0.5697,
+      "sample": 7.79
+    },
+    {
+      "name": "ema_trend",
+      "label": "EMA Trend Stack",
+      "score": -1.0,
+      "confidence": 1.0,
+      "rationale": "Spot 23,403 is below the 21-EMA (23,673); 9/21/50 stack reads bearish, 21-EMA slope -0.46% over 3 sessions.",
+      "abstained": false,
+      "weight": 0.0279,
+      "contribution": -0.0296,
+      "hit_rate": 0.4462,
+      "sample": 19.54
+    },
+    {
+      "name": "supertrend",
+      "label": "Supertrend",
+      "score": -1.0,
+      "confidence": 1.0,
+      "rationale": "Supertrend is bearish with the band at 23,805 (1.7% from spot).",
+      "abstained": false,
+      "weight": 0.0279,
+      "contribution": -0.0296,
+      "hit_rate": 0.4488,
+      "sample": 24.85
+    },
+    {
+      "name": "adx_di",
+      "label": "ADX Directional Strength",
+      "score": -0.2503984551316,
+      "confidence": 0.9886899993946892,
+      "rationale": "ADX 32 signals a strong trend; +DI 16 vs -DI 29 favours the downside.",
+      "abstained": false,
+      "weight": 0.1067,
+      "contribution": -0.0283,
+      "hit_rate": 0.4933,
+      "sample": 3.99
+    },
+    {
+      "name": "price_action",
+      "label": "Candle & Volume Structure",
+      "score": 0.6269155385115757,
+      "confidence": 0.8269155385115756,
+      "rationale": "Last close finished near the high of the day's range (92%), gap -0.07%, OBV slope negative.",
+      "abstained": false,
+      "weight": 0.0279,
+      "contribution": 0.0185,
+      "hit_rate": 0.4777,
+      "sample": 13.07
+    },
+    {
+      "name": "donchian_breakout",
+      "label": "20-Day Range Breakout",
+      "score": -0.3271132425742574,
+      "confidence": 0.5271132425742574,
+      "rationale": "Price inside the 23,116-24,379 range, 23% of the way up.",
+      "abstained": false,
+      "weight": 0.0476,
+      "contribution": -0.0165,
+      "hit_rate": 0.4844,
+      "sample": 10.5
+    },
+    {
+      "name": "bollinger",
+      "label": "Bollinger Position & Squeeze",
+      "score": -0.31854802644625935,
+      "confidence": 0.5185480264462594,
+      "rationale": "Price sits at 27% of the band width.",
+      "abstained": false,
+      "weight": 0.0279,
+      "contribution": -0.0094,
+      "hit_rate": 0.4525,
+      "sample": 8.16
+    },
+    {
+      "name": "seasonality",
+      "label": "Weekday Seasonality",
+      "score": -0.15170990239802007,
+      "confidence": 0.3017099023980201,
+      "rationale": "Tuesday has averaged -0.07% over 81 sessions of this index's own history \u2014 a mild headwind.",
+      "abstained": false,
+      "weight": 0.0279,
+      "contribution": -0.0045,
+      "hit_rate": 0.4524,
+      "sample": 6.16
+    },
+    {
+      "name": "volatility_regime",
+      "label": "India VIX Regime",
+      "score": 0.04878570916428521,
+      "confidence": 0.2987857091642852,
+      "rationale": "India VIX 11.46: VIX rose 0.6%, at the 30th percentile.",
+      "abstained": false,
+      "weight": 0.0589,
+      "contribution": 0.003,
+      "hit_rate": 0.4901,
+      "sample": 7.82
+    },
+    {
+      "name": "oi_pcr",
+      "label": "Option Chain PCR & OI Shift",
+      "score": 0.0,
+      "confidence": 0.0,
+      "rationale": "NSE option chain unavailable this run",
+      "abstained": true,
+      "weight": 0.0279,
+      "contribution": 0.0,
+      "hit_rate": 0.5,
+      "sample": 0.0
+    },
+    {
+      "name": "max_pain",
+      "label": "Max Pain Gravity",
+      "score": 0.0,
+      "confidence": 0.0,
+      "rationale": "NSE option chain unavailable this run",
+      "abstained": true,
+      "weight": 0.0279,
+      "contribution": 0.0,
+      "hit_rate": 0.5,
+      "sample": 0.0
+    }
+  ],
+  "market_data": {
+    "vix": 11.460000038146973,
+    "vix_change_pct": 0.61,
+    "vix_percentile": 29.761904761904763,
+    "atr_pct": 0.78,
+    "rsi": 36.4,
+    "adx": 31.5,
+    "realized_vol": 7.43,
+    "source": "yahoo"
+  },
+  "option_chain": null,
+  "learning": {
+    "runs": 1,
+    "resolved": 179,
+    "resolved_this_run": 0,
+    "regime": "low_vol",
+    "strategy_stats": {
+      "ema_trend": {
+        "weight": 0.0279,
+        "hit_rate": 0.4462,
+        "raw_hit_rate": 0.4296,
+        "sample": 19.54,
+        "avg_pnl_pct": 28.84,
+        "regime_sample": 17.02
+      },
+      "macd_momentum": {
+        "weight": 0.1947,
+        "hit_rate": 0.5172,
+        "raw_hit_rate": 0.524,
+        "sample": 15.22,
+        "avg_pnl_pct": 26.78,
+        "regime_sample": 13.46
+      },
+      "rsi_reversion": {
+        "weight": 0.191,
+        "hit_rate": 0.5697,
+        "raw_hit_rate": 0.6234,
+        "sample": 7.79,
+        "avg_pnl_pct": 14.39,
+        "regime_sample": 6.32
+      },
+      "donchian_breakout": {
+        "weight": 0.0476,
+        "hit_rate": 0.4844,
+        "raw_hit_rate": 0.4754,
+        "sample": 10.5,
+        "avg_pnl_pct": 31.72,
+        "regime_sample": 9.11
+      },
+      "supertrend": {
+        "weight": 0.0279,
+        "hit_rate": 0.4488,
+        "raw_hit_rate": 0.4365,
+        "sample": 24.85,
+        "avg_pnl_pct": 23.02,
+        "regime_sample": 22.02
+      },
+      "adx_di": {
+        "weight": 0.1067,
+        "hit_rate": 0.4933,
+        "raw_hit_rate": 0.4833,
+        "sample": 3.99,
+        "avg_pnl_pct": 35.17,
+        "regime_sample": 3.15
+      },
+      "bollinger": {
+        "weight": 0.0279,
+        "hit_rate": 0.4525,
+        "raw_hit_rate": 0.4176,
+        "sample": 8.16,
+        "avg_pnl_pct": 9.55,
+        "regime_sample": 7.0
+      },
+      "volatility_regime": {
+        "weight": 0.0589,
+        "hit_rate": 0.4901,
+        "raw_hit_rate": 0.4825,
+        "sample": 7.82,
+        "avg_pnl_pct": 13.55,
+        "regime_sample": 6.61
+      },
+      "price_action": {
+        "weight": 0.0279,
+        "hit_rate": 0.4777,
+        "raw_hit_rate": 0.4675,
+        "sample": 13.07,
+        "avg_pnl_pct": 14.55,
+        "regime_sample": 11.32
+      },
+      "momentum_roc": {
+        "weight": 0.2058,
+        "hit_rate": 0.5176,
+        "raw_hit_rate": 0.5248,
+        "sample": 14.78,
+        "avg_pnl_pct": 28.3,
+        "regime_sample": 12.54
+      },
+      "seasonality": {
+        "weight": 0.0279,
+        "hit_rate": 0.4524,
+        "raw_hit_rate": 0.4061,
+        "sample": 6.16,
+        "avg_pnl_pct": -0.66,
+        "regime_sample": 5.64
+      },
+      "oi_pcr": {
+        "weight": 0.0279,
+        "hit_rate": 0.5,
+        "raw_hit_rate": null,
+        "sample": 0.0,
+        "avg_pnl_pct": null,
+        "regime_sample": 0.0
+      },
+      "max_pain": {
+        "weight": 0.0279,
+        "hit_rate": 0.5,
+        "raw_hit_rate": null,
+        "sample": 0.0,
+        "avg_pnl_pct": null,
+        "regime_sample": 0.0
+      }
+    },
+    "llm_enabled": false,
+    "llm_models": []
+  },
+  "performance": {
+    "total_signals": 180,
+    "resolved": 179,
+    "scored": 147,
+    "pending": 1,
+    "accuracy_all": 47.62,
+    "accuracy_last_20": 45.0,
+    "accuracy_last_50": 44.0,
+    "accuracy_traded_only": 46.85,
+    "current_streak": 0,
+    "best_streak": 5,
+    "trades_simulated": 111,
+    "win_rate_pct": 41.44,
+    "avg_trade_pnl_pct": 4.11,
+    "avg_account_return_pct": -0.187,
+    "cumulative_pnl_pct": -21.37,
+    "max_drawdown_pct": -38.14,
+    "by_regime": {
+      "low_vol": {
+        "n": 57,
+        "hits": 30,
+        "accuracy": 52.63
+      },
+      "mid_vol": {
+        "n": 72,
+        "hits": 33,
+        "accuracy": 45.83
+      },
+      "high_vol": {
+        "n": 18,
+        "hits": 7,
+        "accuracy": 38.89
+      }
+    },
+    "by_action": {
+      "NO_TRADE": {
+        "n": 36,
+        "hits": 18,
+        "accuracy": 50.0
+      },
+      "CALL": {
+        "n": 52,
+        "hits": 22,
+        "accuracy": 42.31
+      },
+      "PUT": {
+        "n": 59,
+        "hits": 30,
+        "accuracy": 50.85
+      }
+    },
+    "equity_curve": [
+      {
+        "date": "2026-01-02",
+        "pnl_pct": 126.92,
+        "capital_deployed_pct": 2.68,
+        "account_return_pct": 3.396,
+        "cumulative_pct": 3.4
+      },
+      {
+        "date": "2026-01-05",
+        "pnl_pct": -57.98,
+        "capital_deployed_pct": 2.41,
+        "account_return_pct": -1.398,
+        "cumulative_pct": 1.95
+      },
+      {
+        "date": "2026-01-06",
+        "pnl_pct": -62.16,
+        "capital_deployed_pct": 2.19,
+        "account_return_pct": -1.364,
+        "cumulative_pct": 0.56
+      },
+      {
+        "date": "2026-01-08",
+        "pnl_pct": -92.48,
+        "capital_deployed_pct": 2.75,
+        "account_return_pct": -2.54,
+        "cumulative_pct": -1.99
+      },
+      {
+        "date": "2026-01-09",
+        "pnl_pct": 130.37,
+        "capital_deployed_pct": 3.0,
+        "account_return_pct": 3.916,
+        "cumulative_pct": 1.84
+      },
+      {
+        "date": "2026-01-12",
+        "pnl_pct": -60.53,
+        "capital_deployed_pct": 2.99,
+        "account_return_pct": -1.808,
+        "cumulative_pct": 0.0
+      },
+      {
+        "date": "2026-01-13",
+        "pnl_pct": 10.27,
+        "capital_deployed_pct": 3.04,
+        "account_return_pct": 0.312,
+        "cumulative_pct": 0.31
+      },
+      {
+        "date": "2026-01-14",
+        "pnl_pct": 19.71,
+        "capital_deployed_pct": 3.1,
+        "account_return_pct": 0.612,
+        "cumulative_pct": 0.93
+      },
+      {
+        "date": "2026-01-19",
+        "pnl_pct": 51.65,
+        "capital_deployed_pct": 2.96,
+        "account_return_pct": 1.531,
+        "cumulative_pct": 2.47
+      },
+      {
+        "date": "2026-01-20",
+        "pnl_pct": 269.21,
+        "capital_deployed_pct": 3.25,
+        "account_return_pct": 8.739,
+        "cumulative_pct": 11.43
+      },
+      {
+        "date": "2026-01-21",
+        "pnl_pct": 27.03,
+        "capital_deployed_pct": 2.78,
+        "account_return_pct": 0.753,
+        "cumulative_pct": 12.27
+      },
+      {
+        "date": "2026-01-22",
+        "pnl_pct": -67.73,
+        "capital_deployed_pct": 3.48,
+        "account_return_pct": -2.36,
+        "cumulative_pct": 9.62
+      },
+      {
+        "date": "2026-01-23",
+        "pnl_pct": 135.04,
+        "capital_deployed_pct": 3.64,
+        "account_return_pct": 4.92,
+        "cumulative_pct": 15.01
+      },
+      {
+        "date": "2026-01-27",
+        "pnl_pct": -60.72,
+        "capital_deployed_pct": 3.74,
+        "account_return_pct": -2.272,
+        "cumulative_pct": 12.4
+      },
+      {
+        "date": "2026-01-28",
+        "pnl_pct": -76.9,
+        "capital_deployed_pct": 3.44,
+        "account_return_pct": -2.644,
+        "cumulative_pct": 9.43
+      },
+      {
+        "date": "2026-01-29",
+        "pnl_pct": -50.01,
+        "capital_deployed_pct": 3.67,
+        "account_return_pct": -1.833,
+        "cumulative_pct": 7.42
+      },
+      {
+        "date": "2026-01-30",
+        "pnl_pct": 30.93,
+        "capital_deployed_pct": 3.22,
+        "account_return_pct": 0.996,
+        "cumulative_pct": 8.49
+      },
+      {
+        "date": "2026-02-03",
+        "pnl_pct": -99.9,
+        "capital_deployed_pct": 3.05,
+        "account_return_pct": -3.043,
+        "cumulative_pct": 5.19
+      },
+      {
+        "date": "2026-02-04",
+        "pnl_pct": -7.58,
+        "capital_deployed_pct": 3.49,
+        "account_return_pct": -0.265,
+        "cumulative_pct": 4.91
+      },
+      {
+        "date": "2026-02-05",
+        "pnl_pct": -70.8,
+        "capital_deployed_pct": 3.25,
+        "account_return_pct": -2.303,
+        "cumulative_pct": 2.49
+      },
+      {
+        "date": "2026-02-06",
+        "pnl_pct": -4.67,
+        "capital_deployed_pct": 2.72,
+        "account_return_pct": -0.127,
+        "cumulative_pct": 2.36
+      },
+      {
+        "date": "2026-02-09",
+        "pnl_pct": 91.9,
+        "capital_deployed_pct": 2.66,
+        "account_return_pct": 2.445,
+        "cumulative_pct": 4.87
+      },
+      {
+        "date": "2026-02-10",
+        "pnl_pct": 4.27,
+        "capital_deployed_pct": 3.12,
+        "account_return_pct": 0.133,
+        "cumulative_pct": 5.01
+      },
+      {
+        "date": "2026-02-12",
+        "pnl_pct": -75.89,
+        "capital_deployed_pct": 2.71,
+        "account_return_pct": -2.06,
+        "cumulative_pct": 2.84
+      },
+      {
+        "date": "2026-02-13",
+        "pnl_pct": -93.2,
+        "capital_deployed_pct": 2.8,
+        "account_return_pct": -2.61,
+        "cumulative_pct": 0.16
+      },
+      {
+        "date": "2026-02-18",
+        "pnl_pct": 19.97,
+        "capital_deployed_pct": 3.38,
+        "account_return_pct": 0.675,
+        "cumulative_pct": 0.83
+      },
+      {
+        "date": "2026-02-19",
+        "pnl_pct": -94.51,
+        "capital_deployed_pct": 3.15,
+        "account_return_pct": -2.975,
+        "cumulative_pct": -2.17
+      },
+      {
+        "date": "2026-02-20",
+        "pnl_pct": -55.8,
+        "capital_deployed_pct": 3.48,
+        "account_return_pct": -1.941,
+        "cumulative_pct": -4.06
+      },
+      {
+        "date": "2026-02-23",
+        "pnl_pct": 43.08,
+        "capital_deployed_pct": 3.86,
+        "account_return_pct": 1.664,
+        "cumulative_pct": -2.47
+      },
+      {
+        "date": "2026-02-24",
+        "pnl_pct": -89.24,
+        "capital_deployed_pct": 3.7,
+        "account_return_pct": -3.299,
+        "cumulative_pct": -5.69
+      },
+      {
+        "date": "2026-02-25",
+        "pnl_pct": -4.28,
+        "capital_deployed_pct": 3.81,
+        "account_return_pct": -0.163,
+        "cumulative_pct": -5.84
+      },
+      {
+        "date": "2026-03-05",
+        "pnl_pct": -86.04,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": -5.84
+      },
+      {
+        "date": "2026-03-06",
+        "pnl_pct": 139.67,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": -5.84
+      },
+      {
+        "date": "2026-03-09",
+        "pnl_pct": 195.82,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": -5.84
+      },
+      {
+        "date": "2026-03-11",
+        "pnl_pct": 193.75,
+        "capital_deployed_pct": 4.15,
+        "account_return_pct": 8.039,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-13",
+        "pnl_pct": 208.51,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-16",
+        "pnl_pct": -77.06,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-17",
+        "pnl_pct": -70.17,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-18",
+        "pnl_pct": -72.56,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-19",
+        "pnl_pct": 482.3,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-20",
+        "pnl_pct": -50.24,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-23",
+        "pnl_pct": 283.85,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-25",
+        "pnl_pct": -84.86,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-27",
+        "pnl_pct": 177.85,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-03-30",
+        "pnl_pct": 160.26,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-01",
+        "pnl_pct": -84.63,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-06",
+        "pnl_pct": -70.44,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-07",
+        "pnl_pct": -58.54,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-09",
+        "pnl_pct": -70.71,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-13",
+        "pnl_pct": -66.14,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-15",
+        "pnl_pct": 142.88,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-17",
+        "pnl_pct": 33.74,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": 1.73
+      },
+      {
+        "date": "2026-04-21",
+        "pnl_pct": 55.47,
+        "capital_deployed_pct": 4.2,
+        "account_return_pct": 2.331,
+        "cumulative_pct": 4.1
+      },
+      {
+        "date": "2026-04-22",
+        "pnl_pct": -71.2,
+        "capital_deployed_pct": 4.02,
+        "account_return_pct": -2.862,
+        "cumulative_pct": 1.12
+      },
+      {
+        "date": "2026-04-23",
+        "pnl_pct": -72.92,
+        "capital_deployed_pct": 4.24,
+        "account_return_pct": -3.093,
+        "cumulative_pct": -2.01
+      },
+      {
+        "date": "2026-04-24",
+        "pnl_pct": -79.31,
+        "capital_deployed_pct": 4.21,
+        "account_return_pct": -3.338,
+        "cumulative_pct": -5.28
+      },
+      {
+        "date": "2026-04-28",
+        "pnl_pct": -54.44,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": -0.0,
+        "cumulative_pct": -5.28
+      },
+      {
+        "date": "2026-04-29",
+        "pnl_pct": 49.1,
+        "capital_deployed_pct": 0.0,
+        "account_return_pct": 0.0,
+        "cumulative_pct": -5.28
+      },
+      {
+        "date": "2026-04-30",
+        "pnl_pct": -67.7,
+        "capital_deployed_pct": 3.91,
+        "account_return_pct": -2.649,
+        "cumulative_pct": -7.79
+      },
+      {
+        "date": "2026-05-05",
+        "pnl_pct": -54.1,
+        "capital_deployed_pct": 4.05,
+        "account_return_pct": -2.191,
+        "cumulative_pct": -9.81
+      },
+      {
+        "date": "2026-05-11",
+        "pnl_pct": -88.77,
+        "capital_deployed_pct": 3.7,
+        "account_return_pct": -3.286,
+        "cumulative_pct": -12.77
+      },
+      {
+        "date": "2026-05-14",
+        "pnl_pct": -84.34,
+        "capital_deployed_pct": 4.09,
+        "account_return_pct": -3.45,
+        "cumulative_pct": -15.78
+      },
+      {
+        "date": "2026-05-15",
+        "pnl_pct": -5.72,
+        "capital_deployed_pct": 4.25,
+        "account_return_pct": -0.243,
+        "cumulative_pct": -15.99
+      },
+      {
+        "date": "2026-05-22",
+        "pnl_pct": -44.6,
+        "capital_deployed_pct": 3.77,
+        "account_return_pct": -1.682,
+        "cumulative_pct": -17.4
+      },
+      {
+        "date": "2026-06-01",
+        "pnl_pct": 61.57,
+        "capital_deployed_pct": 4.11,
+        "account_return_pct": 2.532,
+        "cumulative_pct": -15.31
+      },
+      {
+        "date": "2026-06-02",
+        "pnl_pct": -62.31,
+        "capital_deployed_pct": 3.65,
+        "account_return_pct": -2.271,
+        "cumulative_pct": -17.23
+      },
+      {
+        "date": "2026-06-05",
+        "pnl_pct": -1.7,
+        "capital_deployed_pct": 3.69,
+        "account_return_pct": -0.063,
+        "cumulative_pct": -17.28
+      },
+      {
+        "date": "2026-06-08",
+        "pnl_pct": 125.89,
+        "capital_deployed_pct": 3.65,
+        "account_return_pct": 4.596,
+        "cumulative_pct": -13.48
+      },
+      {
+        "date": "2026-06-09",
+        "pnl_pct": -66.22,
+        "capital_deployed_pct": 3.88,
+        "account_return_pct": -2.572,
+        "cumulative_pct": -15.71
+      },
+      {
+        "date": "2026-06-11",
+        "pnl_pct": 1.18,
+        "capital_deployed_pct": 3.6,
+        "account_return_pct": 0.042,
+        "cumulative_pct": -15.67
+      },
+      {
+        "date": "2026-06-12",
+        "pnl_pct": -98.24,
+        "capital_deployed_pct": 3.63,
+        "account_return_pct": -3.57,
+        "cumulative_pct": -18.68
+      },
+      {
+        "date": "2026-06-17",
+        "pnl_pct": 23.51,
+        "capital_deployed_pct": 2.76,
+        "account_return_pct": 0.65,
+        "cumulative_pct": -18.15
+      },
+      {
+        "date": "2026-06-18",
+        "pnl_pct": 14.43,
+        "capital_deployed_pct": 3.42,
+        "account_return_pct": 0.493,
+        "cumulative_pct": -17.75
+      },
+      {
+        "date": "2026-06-19",
+        "pnl_pct": -75.13,
+        "capital_deployed_pct": 2.99,
+        "account_return_pct": -2.248,
+        "cumulative_pct": -19.6
+      },
+      {
+        "date": "2026-06-22",
+        "pnl_pct": 22.07,
+        "capital_deployed_pct": 2.99,
+        "account_return_pct": 0.659,
+        "cumulative_pct": -19.07
+      },
+      {
+        "date": "2026-06-23",
+        "pnl_pct": -89.94,
+        "capital_deployed_pct": 2.81,
+        "account_return_pct": -2.531,
+        "cumulative_pct": -21.12
+      },
+      {
+        "date": "2026-06-29",
+        "pnl_pct": -62.92,
+        "capital_deployed_pct": 2.92,
+        "account_return_pct": -1.835,
+        "cumulative_pct": -22.56
+      },
+      {
+        "date": "2026-07-01",
+        "pnl_pct": 51.76,
+        "capital_deployed_pct": 3.2,
+        "account_return_pct": 1.655,
+        "cumulative_pct": -21.28
+      },
+      {
+        "date": "2026-07-02",
+        "pnl_pct": 72.18,
+        "capital_deployed_pct": 2.96,
+        "account_return_pct": 2.139,
+        "cumulative_pct": -19.6
+      },
+      {
+        "date": "2026-07-03",
+        "pnl_pct": 25.57,
+        "capital_deployed_pct": 2.99,
+        "account_return_pct": 0.764,
+        "cumulative_pct": -18.98
+      },
+      {
+        "date": "2026-07-06",
+        "pnl_pct": 85.07,
+        "capital_deployed_pct": 2.77,
+        "account_return_pct": 2.361,
+        "cumulative_pct": -17.07
+      },
+      {
+        "date": "2026-07-08",
+        "pnl_pct": -98.6,
+        "capital_deployed_pct": 2.43,
+        "account_return_pct": -2.397,
+        "cumulative_pct": -19.06
+      },
+      {
+        "date": "2026-07-14",
+        "pnl_pct": -73.8,
+        "capital_deployed_pct": 3.09,
+        "account_return_pct": -2.28,
+        "cumulative_pct": -20.9
+      },
+      {
+        "date": "2026-07-20",
+        "pnl_pct": -60.57,
+        "capital_deployed_pct": 3.43,
+        "account_return_pct": -2.077,
+        "cumulative_pct": -22.55
+      },
+      {
+        "date": "2026-07-21",
+        "pnl_pct": -53.12,
+        "capital_deployed_pct": 2.68,
+        "account_return_pct": -1.424,
+        "cumulative_pct": -23.65
+      },
+      {
+        "date": "2026-07-22",
+        "pnl_pct": -78.78,
+        "capital_deployed_pct": 3.28,
+        "account_return_pct": -2.582,
+        "cumulative_pct": -25.62
+      },
+      {
+        "date": "2026-07-24",
+        "pnl_pct": 39.43,
+        "capital_deployed_pct": 2.99,
+        "account_return_pct": 1.177,
+        "cumulative_pct": -24.75
+      },
+      {
+        "date": "2026-07-27",
+        "pnl_pct": -89.47,
+        "capital_deployed_pct": 3.17,
+        "account_return_pct": -2.837,
+        "cumulative_pct": -26.88
+      },
+      {
+        "date": "2026-07-30",
+        "pnl_pct": 11.88,
+        "capital_deployed_pct": 2.54,
+        "account_return_pct": 0.302,
+        "cumulative_pct": -26.66
+      },
+      {
+        "date": "2026-07-31",
+        "pnl_pct": 6.73,
+        "capital_deployed_pct": 2.84,
+        "account_return_pct": 0.191,
+        "cumulative_pct": -26.52
+      },
+      {
+        "date": "2026-08-03",
+        "pnl_pct": 327.23,
+        "capital_deployed_pct": 2.98,
+        "account_return_pct": 9.735,
+        "cumulative_pct": -19.37
+      },
+      {
+        "date": "2026-08-04",
+        "pnl_pct": -77.0,
+        "capital_deployed_pct": 2.95,
+        "account_return_pct": -2.272,
+        "cumulative_pct": -21.2
+      },
+      {
+        "date": "2026-08-07",
+        "pnl_pct": -51.82,
+        "capital_deployed_pct": 3.19,
+        "account_return_pct": -1.651,
+        "cumulative_pct": -22.5
+      },
+      {
+        "date": "2026-08-11",
+        "pnl_pct": -68.62,
+        "capital_deployed_pct": 3.17,
+        "account_return_pct": -2.176,
+        "cumulative_pct": -24.19
+      },
+      {
+        "date": "2026-08-13",
+        "pnl_pct": -45.75,
+        "capital_deployed_pct": 3.0,
+        "account_return_pct": -1.371,
+        "cumulative_pct": -25.23
+      },
+      {
+        "date": "2026-08-17",
+        "pnl_pct": -60.91,
+        "capital_deployed_pct": 2.56,
+        "account_return_pct": -1.561,
+        "cumulative_pct": -26.39
+      },
+      {
+        "date": "2026-08-19",
+        "pnl_pct": 26.18,
+        "capital_deployed_pct": 2.59,
+        "account_return_pct": 0.679,
+        "cumulative_pct": -25.89
+      },
+      {
+        "date": "2026-08-20",
+        "pnl_pct": -79.43,
+        "capital_deployed_pct": 2.97,
+        "account_return_pct": -2.361,
+        "cumulative_pct": -27.64
+      },
+      {
+        "date": "2026-08-28",
+        "pnl_pct": -62.38,
+        "capital_deployed_pct": 2.69,
+        "account_return_pct": -1.681,
+        "cumulative_pct": -28.86
+      },
+      {
+        "date": "2026-09-02",
+        "pnl_pct": 82.19,
+        "capital_deployed_pct": 2.6,
+        "account_return_pct": 2.134,
+        "cumulative_pct": -27.34
+      },
+      {
+        "date": "2026-09-03",
+        "pnl_pct": -1.89,
+        "capital_deployed_pct": 2.48,
+        "account_return_pct": -0.047,
+        "cumulative_pct": -27.38
+      },
+      {
+        "date": "2026-09-07",
+        "pnl_pct": 74.41,
+        "capital_deployed_pct": 2.44,
+        "account_return_pct": 1.817,
+        "cumulative_pct": -26.06
+      },
+      {
+        "date": "2026-09-08",
+        "pnl_pct": 87.09,
+        "capital_deployed_pct": 2.87,
+        "account_return_pct": 2.496,
+        "cumulative_pct": -24.21
+      },
+      {
+        "date": "2026-09-09",
+        "pnl_pct": 152.0,
+        "capital_deployed_pct": 2.77,
+        "account_return_pct": 4.213,
+        "cumulative_pct": -21.02
+      },
+      {
+        "date": "2026-09-10",
+        "pnl_pct": -43.17,
+        "capital_deployed_pct": 3.02,
+        "account_return_pct": -1.302,
+        "cumulative_pct": -22.05
+      },
+      {
+        "date": "2026-09-11",
+        "pnl_pct": 33.6,
+        "capital_deployed_pct": 3.05,
+        "account_return_pct": 1.023,
+        "cumulative_pct": -21.25
+      },
+      {
+        "date": "2026-09-15",
+        "pnl_pct": 218.93,
+        "capital_deployed_pct": 2.86,
+        "account_return_pct": 6.27,
+        "cumulative_pct": -16.31
+      },
+      {
+        "date": "2026-09-16",
+        "pnl_pct": -63.17,
+        "capital_deployed_pct": 2.86,
+        "account_return_pct": -1.807,
+        "cumulative_pct": -17.82
+      },
+      {
+        "date": "2026-09-17",
+        "pnl_pct": -53.31,
+        "capital_deployed_pct": 2.81,
+        "account_return_pct": -1.499,
+        "cumulative_pct": -19.05
+      },
+      {
+        "date": "2026-09-18",
+        "pnl_pct": -64.09,
+        "capital_deployed_pct": 2.51,
+        "account_return_pct": -1.611,
+        "cumulative_pct": -20.36
+      },
+      {
+        "date": "2026-09-21",
+        "pnl_pct": -48.94,
+        "capital_deployed_pct": 2.61,
+        "account_return_pct": -1.275,
+        "cumulative_pct": -21.37
+      }
+    ]
+  },
+  "data_quality": {
+    "candles": 400,
+    "price_source": "yahoo",
+    "vix_available": true,
+    "option_chain_available": false,
+    "notes": [
+      "nse option chain http 404",
+      "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
+    ]
+  },
+  "disclaimer": "Educational research output, not investment advice. F&O trading carries a high risk of loss. Signals are model estimates with no guarantee of accuracy \u2014 verify independently and size positions responsibly."
+}
