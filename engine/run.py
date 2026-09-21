@@ -13,7 +13,7 @@ import sys
 from datetime import date, datetime, timedelta, timezone
 from typing import Dict, List, Optional
 
-from . import datafeed, evaluate, learner, llm, options, strategies
+from . import archive, datafeed, evaluate, learner, llm, options, strategies
 
 IST = timezone(timedelta(hours=5, minutes=30))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +27,10 @@ DATA_DIR = os.path.join(ROOT, "docs", "data")
 # works against). docs/data/history.json is a trimmed copy for the site, so
 # every visitor is not made to download years of records to draw one table.
 HISTORY_PATH = os.path.join(STATE_DIR, "history.json")
+# Append-only permanent record; the rolling files above are bounded and
+# eventually drop old rows, this never does.
+ARCHIVE_DIR = os.path.join(STATE_DIR, "archive")
+CSV_PATH = os.path.join(DATA_DIR, "signals.csv")
 PUBLISHED_HISTORY_PATH = os.path.join(DATA_DIR, "history.json")
 PUBLISHED_HISTORY_RECORDS = 80
 
@@ -68,6 +72,35 @@ def write_json(path: str, payload, compact: bool = False) -> None:
             json.dump(payload, handle, separators=(",", ":"), default=str)
         else:
             json.dump(payload, handle, indent=2, default=str)
+
+
+# Scheduled run times in IST. Keep this in step with the cron entries in
+# .github/workflows/signal.yml -- it is only used to tell the site when the
+# next signal is due.
+SCHEDULE_IST = (
+    [(8, 15)]                                              # pre-open
+    + [(h, m) for h in range(9, 15) for m in (0, 30)        # every 30 min
+       if (h, m) >= (9, 30)]                                # from 09:30
+    + [(15, 0), (16, 15)]                                   # close, post-close
+)
+
+
+def _next_run_ist(now: datetime) -> Dict:
+    """When the next scheduled signal is due, for the site's freshness banner."""
+    slots = sorted(set(SCHEDULE_IST))
+    today = now.date()
+    for hour, minute in slots:
+        candidate = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+        if candidate > now and candidate.weekday() < 5:
+            return {"at": candidate.isoformat(),
+                    "label": candidate.strftime("%d %b, %I:%M %p IST")}
+    # Nothing left today: roll to the next weekday's first slot.
+    ahead = 1
+    while (today + timedelta(days=ahead)).weekday() >= 5:
+        ahead += 1
+    nxt = (now + timedelta(days=ahead)).replace(
+        hour=slots[0][0], minute=slots[0][1], second=0, microsecond=0)
+    return {"at": nxt.isoformat(), "label": nxt.strftime("%d %b, %I:%M %p IST")}
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -125,7 +158,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     if not history:   # migrate from the pre-split location if it is still there
         history = read_json(PUBLISHED_HISTORY_PATH, [])
     resolved_count, resolve_notes = evaluate.resolve_pending(
-        history, candles, vix_candles, state, cfg)
+        history, candles, vix_candles, state, cfg,
+        today=now.date().isoformat())
     notes.extend(resolve_notes)
 
     # --------------------------------------------------------------- votes
@@ -181,6 +215,11 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     perf = evaluate.performance(history)
 
+    # Persist before publishing: the archive is append-only and must capture
+    # every resolved record regardless of what the rolling files keep.
+    archived_count = archive.archive_resolved(history, ARCHIVE_DIR)
+    all_records = archive.merge_for_export(archive.load_archive(ARCHIVE_DIR), history)
+
     latest = {
         "generated_at": now.isoformat(),
         "generated_at_ist": now.strftime("%d %b %Y, %I:%M %p IST"),
@@ -231,6 +270,17 @@ def main(argv: Optional[List[str]] = None) -> int:
             "llm_models": llm.voter_names(),
         },
         "performance": perf,
+        "storage": {
+            "archived_this_run": archived_count,
+            "total_archived": len(all_records),
+            "csv": "data/signals.csv",
+            "note": (
+                "Every signal is appended to a permanent month-by-month archive "
+                "in the repository and exported as CSV. The rolling JSON files "
+                "are trimmed for page weight; the archive and CSV are not."
+            ),
+        },
+        "next_update": _next_run_ist(now),
         "data_quality": {
             "candles": len(candles),
             "price_source": candles.source,
@@ -266,12 +316,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         "strategy_stats": stats,
         "calibration": state.get("calibration", {}),
     })
+    archive.write_csv(all_records, CSV_PATH)
     learner.save_state(MODEL_PATH, state)
 
     print(f"{latest['session_date']}  spot {record['spot']:,.2f}  "
           f"{decision['action']} ({decision['confidence'] * 100:.0f}%)  "
           f"score {ensemble['score']:+.3f}  regime {regime}  "
-          f"resolved {resolved_count}")
+          f"resolved {resolved_count}  archived {archived_count}  "
+          f"total stored {len(all_records)}")
     for note in notes:
         print(f"  note: {note}")
     return 0

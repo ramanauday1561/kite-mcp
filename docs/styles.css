@@ -233,3 +233,13 @@ footer a { color: var(--text-dim); }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ------------------------------------------------------- freshness strip */
+.freshbar {
+  margin-top: 18px; display: flex; gap: 18px; flex-wrap: wrap;
+  align-items: center; justify-content: space-between;
+  padding: 12px 17px; font-size: 0.85rem;
+}
+.freshbar .dim { color: var(--text-dim); font-size: 0.82rem; }
+.freshbar a { color: var(--accent); }
+.refresh-note { margin-top: 9px; }

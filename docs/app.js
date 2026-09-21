@@ -16,6 +16,17 @@ const signed = (v, d = 2) => (v === null || v === undefined) ? '—'
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g,
   (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+function ago(iso) {
+  if (!iso) return null;
+  const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60000);
+  if (!Number.isFinite(mins)) return null;
+  if (mins < 1) return 'just now';
+  if (mins < 60) return `${mins} min ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ${mins % 60}m ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+
 const REGIME_LABEL = { low_vol: 'Low volatility', mid_vol: 'Normal volatility', high_vol: 'High volatility' };
 const cls = (v) => v > 0 ? 'up' : v < 0 ? 'down' : '';
 
@@ -62,9 +73,18 @@ function render(d, history) {
   $('#dataSource').textContent = `source: ${d.market_data?.source ?? 'unknown'}`;
   const chainOK = d.data_quality?.option_chain_available;
   $('#dataSource').className = `pill ${chainOK ? 'live' : 'stale'}`;
-  $('#freshness').textContent = d.generated_at_ist ?? '';
+
+  // Say plainly how old the data is. The page is static: refreshing re-reads
+  // the published file, it does not recompute a signal.
+  const age = ago(d.generated_at);
+  const ageMins = d.generated_at
+    ? (Date.now() - new Date(d.generated_at).getTime()) / 60000 : Infinity;
+  $('#freshness').textContent = age ? `updated ${age}` : (d.generated_at_ist ?? '');
+  $('#freshness').className = `pill ${ageMins > 180 ? 'stale' : 'live'}`;
+  $('#freshness').title = d.generated_at_ist ?? '';
 
   $('#app').innerHTML = [
+    freshnessBar(d),
     verdictCard(d, rec, action, confidence, probUp),
     `<div class="grid cols-2">${tradeCard(d, action)}${marketCard(d)}</div>`,
     `<div class="grid">${strategiesCard(d)}</div>`,
@@ -74,6 +94,29 @@ function render(d, history) {
     `<div class="disclaimer"><strong>Not investment advice.</strong> ${esc(d.disclaimer || '')}</div>`,
     footer(d),
   ].join('');
+}
+
+function freshnessBar(d) {
+  const age = ago(d.generated_at);
+  const next = d.next_update?.label;
+  const stored = d.storage?.total_archived;
+  return `<div class="card freshbar">
+    <div>
+      <strong>Published ${esc(d.generated_at_ist || '')}</strong>
+      ${age ? `<span class="dim"> · ${esc(age)}</span>` : ''}
+    </div>
+    <div class="dim">
+      ${next ? `Next scheduled signal: <strong>${esc(next)}</strong>` : ''}
+    </div>
+    <div class="dim">
+      ${stored ? `${int(stored)} signals archived · <a href="data/signals.csv">CSV</a>` : ''}
+    </div>
+  </div>
+  <div class="note refresh-note">
+    This page is generated on a schedule, not on page load. Refreshing re-reads
+    the latest published file — it does not recompute a signal. New data appears
+    pre-open, every 30 minutes through the session, and after the close.
+  </div>`;
 }
 
 function verdictCard(d, rec, action, confidence, probUp) {

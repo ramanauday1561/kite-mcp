@@ -2,9 +2,15 @@ name: NIFTY 50 F&O Signal
 
 on:
   schedule:
-    # Times are UTC. IST is UTC+5:30.
-    - cron: '45 2 * * 1-5'   # 08:15 IST - pre-open signal for the session ahead
-    - cron: '45 10 * * 1-5'  # 16:15 IST - post-close signal, resolves the day
+    # Times are UTC. IST is UTC+5:30. NSE trades 09:15-15:30 IST.
+    # Actions minutes are unlimited on public repositories, so refreshing
+    # through the session costs nothing.
+    - cron: '45 2 * * 1-5'        # 08:15 IST - pre-open signal
+    - cron: '0,30 4-9 * * 1-5'    # 09:30-15:00 IST - every 30 min intraday
+    - cron: '45 10 * * 1-5'       # 16:15 IST - post-close, resolves the day
+    # GitHub queues scheduled runs on shared infrastructure, so a firing can
+    # be several minutes late. The site shows the real generation time rather
+    # than implying the data is to-the-second.
   workflow_dispatch:
     inputs:
       skip_llm:

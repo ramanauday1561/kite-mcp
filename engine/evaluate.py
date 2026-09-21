@@ -12,6 +12,7 @@ that is genuinely later than the one it was built from.
 """
 from __future__ import annotations
 
+from datetime import date as _date
 from typing import Dict, List, Optional, Tuple
 
 from . import learner, options
@@ -29,8 +30,17 @@ def _next_session(dates: List[str], after: str) -> Optional[str]:
 
 
 def resolve_pending(history: List[Dict], candles, vix_candles, state: Dict,
-                    cfg: Dict) -> Tuple[int, List[str]]:
-    """Score every record that can now be resolved. Returns (count, notes)."""
+                    cfg: Dict, today: Optional[str] = None) -> Tuple[int, List[str]]:
+    """Score every record that can now be resolved. Returns (count, notes).
+
+    `today` (an ISO date in IST) guards against resolving against a session
+    that has not finished yet. Daily candles for the current session keep
+    moving while the market is open, so scoring a prediction against an
+    intraday price would lock in the wrong outcome -- the record is marked
+    resolved and never revisited with the real close, quietly corrupting both
+    the track record and the learned weights. Pass it whenever the pipeline
+    may run during market hours; omit it only in replays over closed history.
+    """
     closes = _close_map(candles)
     dates = candles.dates
     vix_closes = _close_map(vix_candles) if vix_candles is not None else {}
@@ -48,6 +58,8 @@ def resolve_pending(history: List[Dict], candles, vix_candles, state: Dict,
         forecast_date = _next_session(dates, base_date)
         if forecast_date is None:
             continue  # the market has not printed the next session yet
+        if today is not None and forecast_date >= today:
+            continue  # that session is still forming; wait for its real close
 
         entry_close = closes[base_date]
         exit_close = closes[forecast_date]

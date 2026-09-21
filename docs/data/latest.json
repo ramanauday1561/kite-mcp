@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-21T13:12:53.757383+05:30",
-  "generated_at_ist": "21 Sep 2026, 01:12 PM IST",
+  "generated_at": "2026-09-21T13:37:23.179169+05:30",
+  "generated_at_ist": "21 Sep 2026, 01:37 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-09-21",
   "spot": 23404.5,
@@ -239,7 +239,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 3,
+    "runs": 5,
     "resolved": 179,
     "resolved_this_run": 0,
     "regime": "low_vol",
@@ -1183,14 +1183,30 @@
       }
     ]
   },
+  "storage": {
+    "archived_this_run": 0,
+    "total_archived": 180,
+    "csv": "data/signals.csv",
+    "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
+  },
+  "next_update": {
+    "at": "2026-09-21T14:00:00+05:30",
+    "label": "21 Sep, 02:00 PM IST"
+  },
   "data_quality": {
     "candles": 400,
     "price_source": "yahoo",
     "vix_available": true,
     "option_chain_available": false,
     "notes": [
-      "nse option chain http 404",
-      "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
+      "yahoo unavailable for ^NSEI",
+      "stooq unavailable for nifty",
+      "serving cached history only",
+      "yahoo unavailable for ^INDIAVIX",
+      "stooq unavailable for ^vix",
+      "serving cached history only",
+      "option chain skipped (--no-chain)",
+      "LLM panel skipped (--no-llm)"
     ]
   },
   "disclaimer": "Educational research output, not investment advice. F&O trading carries a high risk of loss. Signals are model estimates with no guarantee of accuracy \u2014 verify independently and size positions responsibly."

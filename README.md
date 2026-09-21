@@ -90,9 +90,11 @@ Any OpenAI-compatible endpoint works. Defaults target free tiers:
 | **Together** | `meta-llama/Llama-3.3-70B-Instruct-Turbo-Free` | free tier |
 | **Ollama** | `llama3.1`, `qwen2.5` on your own machine | free, offline |
 
-**The panel is optional.** With no API key, the LLM voters simply abstain and the
-13 technical strategies carry the signal. The system is fully functional for free
-without ever calling a model.
+**The panel is optional and currently OFF.** No `LLM_API_KEY` secret is set, so
+zero LLMs are running today — the 13 technical strategies carry the whole signal.
+The models listed above are what *will* vote once a key is added; nothing calls
+out to a model until then, and the system is fully functional for free without
+ever doing so.
 
 ---
 
@@ -202,6 +204,53 @@ The dashboard is static and reads these files, which are also a plain JSON API:
 | `docs/data/history.json` | recent signals with their resolved outcomes |
 | `docs/data/performance.json` | accuracy, win rate, account curve, drawdown |
 | `docs/data/model.json` | learned weights, hit rates and the calibration table |
+| `docs/data/signals.csv` | **every** signal ever produced, flat CSV for Excel/pandas |
+
+### How often it updates
+
+The page is **generated on a schedule, not on page load** — refreshing your
+browser re-reads the last published file, it does not recompute a signal. New
+data is published on weekdays at:
+
+| IST | What runs |
+|---|---|
+| 08:15 | pre-open signal for the session ahead |
+| 09:30 – 15:00, every 30 min | intraday refresh while NSE is open |
+| 16:15 | post-close signal, resolves the day's prediction |
+
+Actions minutes are unlimited on public repositories, so the intraday cadence
+costs nothing. GitHub queues scheduled jobs on shared infrastructure, so a
+firing can land a few minutes late; the site always shows the real generation
+time and when the next signal is due rather than implying live data.
+
+Intraday runs never score a prediction against the session currently trading —
+that candle is still moving, and locking in an outcome against a mid-session
+price would corrupt both the track record and the learned weights. A prediction
+is resolved only once its forecast session has actually closed.
+
+### Where the data is kept
+
+Nothing is thrown away. Three layers, all committed to the repository:
+
+| Path | Retention |
+|---|---|
+| `state/archive/YYYY-MM.jsonl` | **append-only, permanent.** One JSON object per line, never rewritten or trimmed. |
+| `docs/data/signals.csv` | full flat export of the archive, regenerated each run |
+| `state/history.json` | rolling working set the resolver operates on (capped) |
+| `docs/data/history.json` | trimmed slice for the site, so visitors download ~50KB not megabytes |
+
+The rolling files are bounded on purpose; the archive and the CSV are the
+permanent record. Re-running the pipeline is idempotent — a session already
+archived is never written twice. Because it all lives in git, every row also
+carries an audit trail of exactly when it appeared.
+
+To analyse the whole history:
+
+```python
+import pandas as pd
+df = pd.read_csv("https://ramanauday1561.github.io/kite-mcp/data/signals.csv")
+print(df.groupby("regime")["bias_correct"].mean())
+```
 
 ---
 

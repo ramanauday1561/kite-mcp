@@ -10,7 +10,8 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from engine import datafeed, evaluate, indicators as ind, learner, llm, options, strategies
+from engine import (archive, datafeed, evaluate, indicators as ind, learner,
+                    llm, options, strategies)
 from tools.simulate import replay, synthetic_candles, synthetic_vix
 from engine.run import load_config
 
@@ -607,6 +608,147 @@ class TestEvaluate(unittest.TestCase):
         self.assertLess(abs(point["account_return_pct"]), abs(point["pnl_pct"]))
         self.assertAlmostEqual(point["account_return_pct"],
                                point["pnl_pct"] * 0.04, places=3)
+
+
+class TestIntradaySafety(unittest.TestCase):
+    """Running during market hours must not score against a live candle."""
+
+    def setUp(self):
+        self.cfg = load_config()
+        # 09-16 is "today" and still trading: its close is not final.
+        self.candles = datafeed.Candles(
+            dates=["2026-09-14", "2026-09-15", "2026-09-16"],
+            open=[100, 101, 103], high=[102, 104, 106], low=[99, 100, 102],
+            close=[100.0, 102.0, 101.0], volume=[1e6] * 3)
+
+    def _record(self, session):
+        return {"id": session, "session_date": session, "spot": 100.0,
+                "regime": "mid_vol", "score": 0.4, "probability_up": 0.6,
+                "action": "CALL", "bias": "CALL", "confidence": 0.6,
+                "trade": None, "votes": {"a": {"score": 0.5, "abstained": False}},
+                "outcome": None}
+
+    def test_does_not_resolve_against_the_current_session(self):
+        history = [self._record("2026-09-15")]   # would resolve against 09-16
+        count, _ = evaluate.resolve_pending(
+            history, self.candles, None, learner.new_state(), self.cfg,
+            today="2026-09-16")
+        self.assertEqual(count, 0)
+        self.assertIsNone(history[0]["outcome"])
+
+    def test_resolves_once_that_session_has_closed(self):
+        history = [self._record("2026-09-15")]
+        count, _ = evaluate.resolve_pending(
+            history, self.candles, None, learner.new_state(), self.cfg,
+            today="2026-09-17")     # 09-16 is now a finished session
+        self.assertEqual(count, 1)
+        self.assertEqual(history[0]["outcome"]["forecast_date"], "2026-09-16")
+
+    def test_older_records_still_resolve_intraday(self):
+        # 09-14 -> 09-15 is fully in the past even while 09-16 is trading.
+        history = [self._record("2026-09-14")]
+        count, _ = evaluate.resolve_pending(
+            history, self.candles, None, learner.new_state(), self.cfg,
+            today="2026-09-16")
+        self.assertEqual(count, 1)
+        self.assertEqual(history[0]["outcome"]["forecast_date"], "2026-09-15")
+
+    def test_omitting_today_keeps_replay_behaviour(self):
+        history = [self._record("2026-09-15")]
+        count, _ = evaluate.resolve_pending(
+            history, self.candles, None, learner.new_state(), self.cfg)
+        self.assertEqual(count, 1)
+
+
+class TestArchive(unittest.TestCase):
+    """The permanent record must never lose or duplicate a signal."""
+
+    def _record(self, session, resolved=True):
+        record = {"session_date": session, "generated_at": f"{session}T16:15:00+05:30",
+                  "spot": 25000.0, "regime": "mid_vol", "action": "CALL",
+                  "bias": "CALL", "score": 0.4, "probability_up": 0.61,
+                  "confidence": 0.61,
+                  "trade": {"structure": "long_option", "option_type": "CE",
+                            "strike": 25050.0, "expiry": "2026-09-29",
+                            "days_to_expiry": 5, "theoretical_premium": 80.0,
+                            "stop_loss": 52.0, "target": 132.0},
+                  "outcome": None}
+        if resolved:
+            record["outcome"] = {
+                "forecast_date": session, "entry_close": 25000.0,
+                "exit_close": 25100.0, "move_pct": 0.4, "flat": False,
+                "bias_correct": True, "traded": True,
+                "option_pnl_pct": 22.5, "option_pnl_per_lot": 1350.0}
+        return record
+
+    def test_appends_and_never_duplicates_on_rerun(self):
+        import tempfile
+        history = [self._record("2026-09-14"), self._record("2026-09-15")]
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(archive.archive_resolved(history, tmp), 2)
+            # A re-run on the same day must not write the rows again.
+            self.assertEqual(archive.archive_resolved(history, tmp), 0)
+            history.append(self._record("2026-09-16"))
+            self.assertEqual(archive.archive_resolved(history, tmp), 1)
+            self.assertEqual(len(archive.load_archive(tmp)), 3)
+
+    def test_pending_records_are_not_archived(self):
+        import tempfile
+        history = [self._record("2026-09-14", resolved=False)]
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(archive.archive_resolved(history, tmp), 0)
+            self.assertEqual(archive.load_archive(tmp), [])
+
+    def test_splits_by_month_and_reloads_in_order(self):
+        import os as _os
+        import tempfile
+        history = [self._record("2026-08-31"), self._record("2026-09-01"),
+                   self._record("2026-09-02")]
+        with tempfile.TemporaryDirectory() as tmp:
+            archive.archive_resolved(history, tmp)
+            files = sorted(_os.listdir(tmp))
+            self.assertEqual(files, ["2026-08.jsonl", "2026-09.jsonl"])
+            loaded = archive.load_archive(tmp)
+            self.assertEqual([r["session_date"] for r in loaded],
+                             ["2026-08-31", "2026-09-01", "2026-09-02"])
+
+    def test_a_corrupt_line_does_not_block_the_archive(self):
+        import os as _os
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            path = _os.path.join(tmp, "2026-09.jsonl")
+            with open(path, "w", encoding="utf-8") as handle:
+                handle.write("{broken json\n")
+            self.assertEqual(archive.archive_resolved([self._record("2026-09-14")], tmp), 1)
+            self.assertEqual(len(archive.load_archive(tmp)), 1)
+
+    def test_csv_export_has_a_header_and_one_row_per_signal(self):
+        rows = archive.to_csv([self._record("2026-09-14"),
+                               self._record("2026-09-15", resolved=False)])
+        lines = rows.strip().split("\n")
+        self.assertEqual(len(lines), 3)
+        self.assertTrue(lines[0].startswith("session_date,generated_at,spot"))
+        self.assertIn("25050.0", lines[1])
+        self.assertIn("22.5", lines[1])
+
+    def test_csv_round_trips_through_a_reader(self):
+        import csv as _csv
+        import io as _io
+        text = archive.to_csv([self._record("2026-09-14")])
+        parsed = list(_csv.DictReader(_io.StringIO(text)))
+        self.assertEqual(len(parsed), 1)
+        self.assertEqual(parsed[0]["session_date"], "2026-09-14")
+        self.assertEqual(parsed[0]["option_type"], "CE")
+        self.assertEqual(parsed[0]["bias_correct"], "True")
+
+    def test_merge_prefers_the_resolved_copy(self):
+        archived = [self._record("2026-09-14")]
+        live = [self._record("2026-09-14", resolved=False),
+                self._record("2026-09-15", resolved=False)]
+        merged = archive.merge_for_export(archived, live)
+        self.assertEqual(len(merged), 2)
+        self.assertIsNotNone(merged[0]["outcome"])   # kept the resolved one
+        self.assertIsNone(merged[1]["outcome"])
 
 
 class TestEndToEnd(unittest.TestCase):
