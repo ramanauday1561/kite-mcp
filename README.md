@@ -132,6 +132,20 @@ Get a free key from [Groq](https://console.groq.com) or
 | Variable | `LLM_PROVIDER` | `groq` (default), `openrouter`, `together`, `huggingface`, `ollama` |
 | Variable | `LLM_MODELS` | optional comma-separated override |
 
+Verify it took effect with:
+
+```bash
+python -m engine.llm --check     # locally, with LLM_API_KEY exported
+```
+
+It prints whether a key is present (never the key itself), polls each model
+and shows what each one answered. The workflow runs the same check and reports
+it in the log, without ever blocking the signal.
+
+**Treat the key as a secret.** Put it only in GitHub's secret store — never in
+`config.json`, a commit, or a chat window. If one is ever exposed, delete it at
+the provider and issue a new one; that costs nothing and takes a minute.
+
 ### 3. Tune the strategy (optional)
 
 Everything is in [`config.json`](config.json) — lot size, expiry weekday, risk

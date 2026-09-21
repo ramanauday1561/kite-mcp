@@ -245,3 +245,65 @@ def run_llm_votes(features: Dict) -> tuple:
                                       f"model unreachable this run ({type(exc).__name__})",
                                       abstained=True))
     return votes, notes
+
+
+# --------------------------------------------------------------------------
+# Self-test:  python -m engine.llm --check
+# --------------------------------------------------------------------------
+
+def _check() -> int:
+    """Verify the configured key and models actually answer, and show what they say.
+
+    Exits non-zero if the panel is off or every model failed, so CI can gate on
+    it. Never prints the key -- only whether one is present and its length.
+    """
+    import sys
+
+    cfg = _config()
+    key = cfg["api_key"]
+    print("LLM panel configuration")
+    print(f"  provider : {cfg['provider']}")
+    print(f"  base_url : {cfg['base_url'] or '(none)'}")
+    print(f"  api_key  : {'set, ' + str(len(key)) + ' chars' if key else 'NOT SET'}")
+    print(f"  models   : {', '.join(cfg['models']) or '(none)'}")
+
+    if not is_enabled():
+        print("\nPanel is OFF - the technical strategies will carry the signal alone.")
+        if not key and cfg["provider"] != "ollama":
+            print("Set LLM_API_KEY (a repository secret in CI) to switch it on.")
+        return 1
+
+    # A tiny, representative brief so the check costs almost nothing.
+    brief = {
+        "index": "NIFTY 50", "as_of_session": "self-test", "spot": 25000,
+        "trend": {"pct_vs_ema21": -0.4, "adx": 22.0},
+        "momentum": {"rsi14": 44.0, "macd_histogram": -12.0},
+        "volatility": {"india_vix": 12.5, "vix_change_pct": -1.2},
+    }
+
+    print("\nPolling each model ...")
+    ok = 0
+    for model in cfg["models"]:
+        try:
+            parsed = _call_model(cfg, model, brief)
+            score = float(parsed.get("score", 0.0))
+            print(f"  [ok]   {model}")
+            print(f"         score {score:+.2f}  "
+                  f"confidence {float(parsed.get('confidence', 0)):.2f}")
+            print(f"         \"{str(parsed.get('rationale', ''))[:90]}\"")
+            ok += 1
+        except Exception as exc:
+            print(f"  [FAIL] {model}")
+            print(f"         {type(exc).__name__}: {str(exc)[:160]}")
+
+    print(f"\n{ok}/{len(cfg['models'])} model(s) responded.")
+    if ok:
+        print("Panel is working. These models now vote alongside the 13 technical"
+              " strategies and earn weight from their own hit rate.")
+        return 0
+    print("No model responded - check the key, the provider and the model ids.")
+    return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(_check())

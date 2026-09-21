@@ -60,6 +60,14 @@ jobs:
             echo "Model already trained; skipping the warm start."
           fi
 
+      - name: Report LLM panel status
+        continue-on-error: true   # never block the signal on the LLM panel
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'groq' }}
+          LLM_MODELS: ${{ vars.LLM_MODELS }}
+        run: python -m engine.llm --check
+
       - name: Generate signal
         env:
           # Optional: set LLM_API_KEY as a repository secret to switch on the

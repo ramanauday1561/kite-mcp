@@ -486,6 +486,30 @@ class TestLLMPanel(unittest.TestCase):
         self.assertIsNone(llm._extract_json("no json here"))
         self.assertIsNone(llm._extract_json(""))
 
+    def test_self_check_reports_off_without_a_key(self):
+        import contextlib
+        import io as _io
+        buf = _io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            code = llm._check()
+        self.assertEqual(code, 1)
+        self.assertIn("NOT SET", buf.getvalue())
+        self.assertIn("Panel is OFF", buf.getvalue())
+
+    def test_self_check_never_prints_the_key(self):
+        import contextlib
+        import io as _io
+        os.environ["LLM_API_KEY"] = "gsk_averysecretvalue"
+        os.environ["LLM_PROVIDER"] = "custom"
+        os.environ["LLM_BASE_URL"] = "http://127.0.0.1:9"
+        os.environ["LLM_MODELS"] = "m"
+        os.environ["LLM_TIMEOUT"] = "2"
+        buf = _io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            llm._check()
+        self.assertNotIn("averysecretvalue", buf.getvalue())
+        self.assertIn("set, ", buf.getvalue())   # reports presence, not value
+
     def test_market_brief_contains_no_secrets_and_only_numbers(self):
         candles = synthetic_candles(260, seed=11)
         features = strategies.build_features(candles, synthetic_vix(candles), None)
