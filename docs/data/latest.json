@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-21T21:29:11.218310+05:30",
-  "generated_at_ist": "21 Sep 2026, 09:29 PM IST",
+  "generated_at": "2026-09-21T22:06:42.006127+05:30",
+  "generated_at_ist": "21 Sep 2026, 10:06 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-09-21",
   "spot": 23414.3,
@@ -239,7 +239,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 10,
+    "runs": 11,
     "resolved": 179,
     "resolved_this_run": 0,
     "regime": "low_vol",
