@@ -1,0 +1,114 @@
+name: NIFTY 50 F&O Signal
+
+on:
+  schedule:
+    # Times are UTC. IST is UTC+5:30.
+    - cron: '45 2 * * 1-5'   # 08:15 IST - pre-open signal for the session ahead
+    - cron: '45 10 * * 1-5'  # 16:15 IST - post-close signal, resolves the day
+  workflow_dispatch:
+    inputs:
+      skip_llm:
+        description: 'Skip the LLM panel for this run'
+        type: boolean
+        default: false
+  push:
+    paths:
+      - 'engine/**'
+      - 'config.json'
+      - '.github/workflows/signal.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nifty-signal
+  cancel-in-progress: false
+
+jobs:
+  signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -q
+
+      - name: Warm-start the model on first run
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          if [ ! -f state/model.json ]; then
+            echo "No trained model found - bootstrapping from real history."
+            python -m tools.bootstrap --sessions 180 || \
+              echo "Bootstrap failed; the model will start cold and learn live."
+          else
+            echo "Model already trained; skipping the warm start."
+          fi
+
+      - name: Generate signal
+        env:
+          # Optional: set LLM_API_KEY as a repository secret to switch on the
+          # open-source LLM voters. Everything works without it.
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'groq' }}
+          LLM_MODELS: ${{ vars.LLM_MODELS }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          if [ "${{ inputs.skip_llm }}" = "true" ]; then
+            python -m engine.run --no-llm
+          else
+            python -m engine.run
+          fi
+
+      - name: Commit the new signal
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data state
+          if git diff --staged --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "signal: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            # Runs can race each other; rebase onto whatever landed and retry.
+            BRANCH="${GITHUB_REF_NAME}"
+            for i in 1 2 3; do
+              git pull --rebase origin "$BRANCH" \
+                && git push origin "HEAD:$BRANCH" && break
+              echo "push attempt $i failed; retrying"
+              sleep $((i * 5))
+            done
+          fi
+
+  deploy-pages:
+    needs: signal
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/configure-pages@v5
+        with:
+          # Turns GitHub Pages on for the repository automatically, so no
+          # manual step is needed in Settings before the first deploy.
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

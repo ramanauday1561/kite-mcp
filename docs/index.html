@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NIFTY 50 F&amp;O Signal</title>
+<meta name="description" content="Adaptive NIFTY 50 options strategy builder — daily CALL/PUT analysis from an ensemble of technical strategies and open-source LLMs that reweights itself on its own track record.">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <div class="brand">NIFTY 50 <span>F&amp;O Signal</span></div>
+    <div class="head-meta">
+      <span class="pill" id="dataSource">loading…</span>
+      <span class="pill" id="freshness"></span>
+      <button class="ghost" id="themeBtn" type="button" aria-label="Toggle colour theme">◐ Theme</button>
+      <button class="ghost" id="refreshBtn" type="button">↻ Refresh</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="app">
+  <div class="card" style="margin-top:18px">
+    <div class="empty"><span class="spin"></span><p style="margin-top:10px">Loading the latest signal…</p></div>
+  </div>
+</main>
+
+<template id="tpl-empty">
+  <div class="card" style="margin-top:18px">
+    <div class="empty">
+      <h3>No signal published yet</h3>
+      <p>The analysis job has not produced its first result for this repository.</p>
+      <p style="margin-top:10px">Run it manually from the <strong>Actions</strong> tab
+         (workflow: <em>NIFTY 50 F&amp;O Signal</em> → <em>Run workflow</em>),
+         or locally with <code>python -m engine.run</code>.</p>
+      <p style="margin-top:10px;font-size:0.82rem">
+        It publishes every trading day, before the open and after the close.</p>
+    </div>
+  </div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "index": {
+    "name": "NIFTY 50",
+    "yahoo_symbol": "^NSEI",
+    "vix_yahoo_symbol": "^INDIAVIX",
+    "nse_symbol": "NIFTY",
+    "lot_size": 75,
+    "strike_step": 50
+  },
+  "expiry": {
+    "weekly_weekday": 1,
+    "_comment_weekday": "0=Mon 1=Tue 2=Wed 3=Thu 4=Fri. NSE moved NIFTY weekly expiry to Tuesday. Live option-chain expiry dates override this when reachable.",
+    "monthly_is_last_weekly": true
+  },
+  "signal": {
+    "horizon_days": 1,
+    "no_trade_band": 0.12,
+    "min_confidence": 0.55,
+    "move_threshold_pct": 0.15
+  },
+  "risk": {
+    "capital": 200000,
+    "risk_per_trade_pct": 1.5,
+    "target_delta": 0.40,
+    "stop_loss_pct": 35,
+    "target_pct": 65,
+    "high_iv_percentile": 70
+  },
+  "learning": {
+    "decay": 0.97,
+    "prior_strength": 6.0,
+    "min_weight": 0.02,
+    "max_weight": 0.35,
+    "regimes": ["low_vol", "mid_vol", "high_vol"],
+    "vix_regime_bounds": [13.0, 20.0]
+  },
+  "history": {
+    "lookback_days": 400,
+    "max_history_records": 500
+  }
+}
