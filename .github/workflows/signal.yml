@@ -91,6 +91,12 @@ jobs:
   deploy-pages:
     needs: signal
     runs-on: ubuntu-latest
+    # GitHub Pages has to be switched on once by a repository admin
+    # (Settings -> Pages -> Source: GitHub Actions). The workflow token is not
+    # allowed to create the Pages site itself. Until that one-time step is done
+    # this job cannot deploy, so it is non-blocking: the daily signal still runs
+    # and commits, and deploys start working the moment Pages is enabled.
+    continue-on-error: true
     permissions:
       pages: write
       id-token: write
@@ -112,3 +118,17 @@ jobs:
           path: docs
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Where to find the site
+        if: always()
+        run: |
+          if [ -n "${{ steps.deployment.outputs.page_url }}" ]; then
+            echo "Published: ${{ steps.deployment.outputs.page_url }}"
+          else
+            echo "Pages is not enabled for this repository yet."
+            echo "Enable it once at:"
+            echo "  https://github.com/${{ github.repository }}/settings/pages"
+            echo "Set Source to 'GitHub Actions', then re-run this workflow."
+            echo "The site will then be served at:"
+            echo "  https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          fi

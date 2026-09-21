@@ -98,14 +98,25 @@ without ever calling a model.
 
 ## Setup
 
-### 1. Enable the workflow
+### 1. Turn on GitHub Pages (one-time, required)
 
-Push this repository to GitHub. The workflow enables GitHub Pages automatically
-on its first run, so there is nothing to click in Settings.
+This is the only manual step, and it must be done by a repository admin — the
+Actions token is not permitted to create a Pages site on its own.
+
+1. Go to **Settings → Pages**
+   ([direct link](https://github.com/ramanauday1561/kite-mcp/settings/pages))
+2. Under **Source**, choose **GitHub Actions**
+3. Re-run **Actions → NIFTY 50 F&O Signal → Run workflow**
+
+The dashboard is then served at
+**https://ramanauday1561.github.io/kite-mcp/**
+
+Until that is done the analysis still runs and commits its results every trading
+day — only the published page is missing, so the Pages deploy step is marked
+non-blocking and will not fail the daily run.
 
 If Actions are disabled on a new fork, enable them under **Actions → I understand
-my workflows, go ahead and enable them**, then run **NIFTY 50 F&O Signal →
-Run workflow** once to publish the first signal.
+my workflows, go ahead and enable them** first.
 
 ### 2. Turn on the LLM panel (optional)
 
