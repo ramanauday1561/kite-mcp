@@ -259,6 +259,12 @@ def _check() -> int:
     """
     import sys
 
+    from . import envfile
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    summary = envfile.describe(envfile.load(os.path.join(root, ".env")))
+    if summary:
+        print(summary)
+
     cfg = _config()
     key = cfg["api_key"]
     print("LLM panel configuration")

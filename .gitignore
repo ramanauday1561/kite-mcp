@@ -6,3 +6,8 @@ venv/
 .DS_Store
 *.log
 .cache/
+
+# Local secrets. NEVER commit these - the repository is public.
+.env
+.env.*
+!.env.example

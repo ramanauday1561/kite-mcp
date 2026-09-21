@@ -132,6 +132,25 @@ Get a free key from [Groq](https://console.groq.com) or
 | Variable | `LLM_PROVIDER` | `groq` (default), `openrouter`, `together`, `huggingface`, `ollama` |
 | Variable | `LLM_MODELS` | optional comma-separated override |
 
+#### Running it locally instead (no GitHub access needed)
+
+If you cannot reach the repository settings, you can use the key on your own
+machine right away. Copy `.env.example` to `.env` and fill it in:
+
+```bash
+cp .env.example .env        # then edit LLM_API_KEY
+python -m engine.llm --check
+python -m engine.run
+```
+
+`.env` is gitignored and must stay that way. **This repository is public, so a
+key committed to it is a key published to the world** — that is exactly why the
+CI path uses a GitHub secret rather than a file. Real environment variables
+always override `.env`, so the secret still wins in Actions.
+
+Note that a local run publishes nothing on its own; the hosted site only
+updates when the workflow runs in CI.
+
 Verify it took effect with:
 
 ```bash

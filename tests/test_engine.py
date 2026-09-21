@@ -10,8 +10,8 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from engine import (archive, datafeed, evaluate, indicators as ind, learner,
-                    llm, options, strategies)
+from engine import (archive, datafeed, envfile, evaluate, indicators as ind,
+                    learner, llm, options, strategies)
 from tools.simulate import replay, synthetic_candles, synthetic_vix
 from engine.run import load_config
 
@@ -531,6 +531,77 @@ class TestLLMPanel(unittest.TestCase):
         self.assertTrue(votes[0].abstained)
         self.assertEqual(votes[0].score, 0.0)
         self.assertTrue(notes)
+
+
+class TestEnvFile(unittest.TestCase):
+    """A local .env must be convenient without ever risking a leaked key."""
+
+    def test_parses_the_usual_shapes(self):
+        parsed = envfile.parse(
+            "# a comment\n"
+            "\n"
+            "LLM_API_KEY=gsk_plain\n"
+            "QUOTED=\"gsk_quoted\"\n"
+            "SINGLE='gsk_single'\n"
+            "export EXPORTED=gsk_exported\n"
+            "  SPACED = gsk_spaced  \n"
+            "NOT_A_PAIR\n"
+        )
+        self.assertEqual(parsed["LLM_API_KEY"], "gsk_plain")
+        self.assertEqual(parsed["QUOTED"], "gsk_quoted")
+        self.assertEqual(parsed["SINGLE"], "gsk_single")
+        self.assertEqual(parsed["EXPORTED"], "gsk_exported")
+        self.assertEqual(parsed["SPACED"], "gsk_spaced")
+        self.assertNotIn("NOT_A_PAIR", parsed)
+
+    def test_a_real_environment_variable_wins(self):
+        import tempfile
+        os.environ["ENVFILE_TEST_KEY"] = "from-environment"
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                path = os.path.join(tmp, ".env")
+                with open(path, "w", encoding="utf-8") as handle:
+                    handle.write("ENVFILE_TEST_KEY=from-file\n")
+                envfile.load(path)
+                # CI passes the key as a real secret; a stray file must not win.
+                self.assertEqual(os.environ["ENVFILE_TEST_KEY"], "from-environment")
+                envfile.load(path, override=True)
+                self.assertEqual(os.environ["ENVFILE_TEST_KEY"], "from-file")
+        finally:
+            os.environ.pop("ENVFILE_TEST_KEY", None)
+
+    def test_missing_or_unreadable_file_is_a_no_op(self):
+        self.assertEqual(envfile.load("/nonexistent/path/.env"), {})
+
+    def test_describe_never_reveals_a_secret_value(self):
+        summary = envfile.describe({
+            "LLM_API_KEY": "gsk_averysecretvalue",
+            "SOME_TOKEN": "tok_secret",
+            "API_PASSWORD": "hunter2",
+            "LLM_PROVIDER": "groq",
+        })
+        for secret in ("gsk_averysecretvalue", "tok_secret", "hunter2"):
+            self.assertNotIn(secret, summary)
+        self.assertIn("<hidden", summary)
+        self.assertIn("LLM_PROVIDER=groq", summary)   # non-secrets stay readable
+        self.assertIsNone(envfile.describe({}))
+
+    def test_dotenv_is_gitignored_but_the_example_is_not(self):
+        """Guards the whole point: a key on disk must never be committable."""
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with open(os.path.join(root, ".gitignore"), encoding="utf-8") as handle:
+            ignored = [ln.strip() for ln in handle]
+        self.assertIn(".env", ignored)
+        self.assertIn("!.env.example", ignored)
+        self.assertTrue(os.path.isfile(os.path.join(root, ".env.example")))
+
+    def test_the_example_file_holds_no_real_key(self):
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        with open(os.path.join(root, ".env.example"), encoding="utf-8") as handle:
+            content = handle.read()
+        key = envfile.parse(content).get("LLM_API_KEY", "")
+        self.assertIn("replace_me", key)
+        self.assertLess(len(key), 30)   # a real Groq key is ~56 chars
 
 
 class TestEvaluate(unittest.TestCase):

@@ -13,7 +13,7 @@ import sys
 from datetime import date, datetime, timedelta, timezone
 from typing import Dict, List, Optional
 
-from . import archive, datafeed, evaluate, learner, llm, options, strategies
+from . import archive, datafeed, envfile, evaluate, learner, llm, options, strategies
 
 IST = timezone(timedelta(hours=5, minutes=30))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +31,7 @@ HISTORY_PATH = os.path.join(STATE_DIR, "history.json")
 # eventually drop old rows, this never does.
 ARCHIVE_DIR = os.path.join(STATE_DIR, "archive")
 CSV_PATH = os.path.join(DATA_DIR, "signals.csv")
+ENV_PATH = os.path.join(ROOT, ".env")
 PUBLISHED_HISTORY_PATH = os.path.join(DATA_DIR, "history.json")
 PUBLISHED_HISTORY_RECORDS = 80
 
@@ -113,9 +114,15 @@ def main(argv: Optional[List[str]] = None) -> int:
                         help="skip the NSE option chain fetch")
     args = parser.parse_args(argv)
 
+    # A local .env is a convenience for running outside CI; real environment
+    # variables (how the key arrives in Actions) always take precedence.
+    env_applied = envfile.load(ENV_PATH)
     cfg = load_config()
     index = cfg["index"]
     notes: List[str] = []
+    env_summary = envfile.describe(env_applied)
+    if env_summary:
+        notes.append(env_summary)
     now = datetime.now(IST)
 
     # ---------------------------------------------------------------- data
