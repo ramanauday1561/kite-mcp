@@ -5,8 +5,14 @@ on:
     # Times are UTC. IST is UTC+5:30. NSE trades 09:15-15:30 IST.
     # Actions minutes are unlimited on public repositories, so refreshing
     # through the session costs nothing.
+    #
+    # Minutes are deliberately :07 and :37, NOT :00/:30. GitHub's scheduled
+    # queue is best-effort and heaviest exactly on the hour and half hour,
+    # where every cron on the platform piles in; runs there are routinely
+    # delayed and dropped on free runners. Off-peak minutes are the documented
+    # mitigation. Keep these in step with SCHEDULE_UTC in engine/run.py.
     - cron: '45 2 * * 1-5'        # 08:15 IST - pre-open signal
-    - cron: '0,30 4-9 * * 1-5'    # 09:30-15:00 IST - every 30 min intraday
+    - cron: '7,37 4-9 * * 1-5'    # 09:37-15:07 IST - every 30 min intraday
     - cron: '45 10 * * 1-5'       # 16:15 IST - post-close, resolves the day
     # GitHub queues scheduled runs on shared infrastructure, so a firing can
     # be several minutes late. The site shows the real generation time rather

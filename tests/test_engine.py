@@ -533,6 +533,54 @@ class TestLLMPanel(unittest.TestCase):
         self.assertTrue(notes)
 
 
+class TestSchedule(unittest.TestCase):
+    """The workflow cron and the site's 'next update' must never drift apart."""
+
+    def _workflow_crons(self):
+        import re
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        path = os.path.join(root, ".github", "workflows", "signal.yml")
+        with open(path, encoding="utf-8") as handle:
+            return re.findall(r"cron:\s*'([^']+)'", handle.read())
+
+    def _expand(self, cron):
+        """Expand the limited cron shapes this workflow uses into (h, m) slots."""
+        minute, hour = cron.split()[0], cron.split()[1]
+        minutes = [int(x) for x in minute.split(",")]
+        if "-" in hour:
+            lo, hi = hour.split("-")
+            hours = list(range(int(lo), int(hi) + 1))
+        else:
+            hours = [int(hour)]
+        return {(h, m) for h in hours for m in minutes}
+
+    def test_code_schedule_matches_the_workflow_cron(self):
+        from engine.run import SCHEDULE_UTC
+        from_cron = set()
+        for cron in self._workflow_crons():
+            from_cron |= self._expand(cron)
+        self.assertEqual(from_cron, set(SCHEDULE_UTC),
+                         "engine/run.py SCHEDULE_UTC is out of step with signal.yml")
+
+    def test_intraday_runs_avoid_the_congested_minutes(self):
+        """:00 and :30 are where every cron on GitHub piles in and gets dropped."""
+        from engine.run import SCHEDULE_UTC
+        intraday = [(h, m) for h, m in SCHEDULE_UTC if 4 <= h <= 9]
+        self.assertTrue(intraday)
+        for hour, minute in intraday:
+            self.assertNotIn(minute, (0, 30),
+                             f"{hour:02d}:{minute:02d} UTC sits in the congested slot")
+
+    def test_ist_slots_cover_the_trading_session(self):
+        from engine.run import SCHEDULE_IST
+        slots = set(SCHEDULE_IST)
+        self.assertIn((8, 15), slots)     # pre-open
+        self.assertIn((16, 15), slots)    # post-close
+        # NSE trades 09:15-15:30 IST; we should refresh several times inside it.
+        during = [(h, m) for h, m in slots if (9, 15) <= (h, m) <= (15, 30)]
+        self.assertGreaterEqual(len(during), 8)
+
+
 class TestEnvFile(unittest.TestCase):
     """A local .env must be convenient without ever risking a leaked key."""
 

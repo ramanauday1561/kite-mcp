@@ -106,7 +106,7 @@ function freshnessBar(d) {
       ${age ? `<span class="dim"> · ${esc(age)}</span>` : ''}
     </div>
     <div class="dim">
-      ${next ? `Next scheduled signal: <strong>${esc(next)}</strong>` : ''}
+      ${next ? `Next signal due: <strong>${esc(next)}</strong> <span title="GitHub runs scheduled jobs on shared infrastructure, so a run can land late.">(approx)</span>` : ''}
     </div>
     <div class="dim">
       ${stored ? `${int(stored)} signals archived · <a href="data/signals.csv">CSV</a>` : ''}
@@ -115,7 +115,10 @@ function freshnessBar(d) {
   <div class="note refresh-note">
     This page is generated on a schedule, not on page load. Refreshing re-reads
     the latest published file — it does not recompute a signal. New data appears
-    pre-open, every 30 minutes through the session, and after the close.
+    pre-open, roughly every 30 minutes through the session, and after the close.
+    Scheduled runs are queued on GitHub's shared infrastructure and can arrive
+    late or be skipped under load, so treat the time above as the real answer
+    rather than assuming a fixed clock.
   </div>`;
 }
 

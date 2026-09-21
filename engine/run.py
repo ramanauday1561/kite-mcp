@@ -75,15 +75,26 @@ def write_json(path: str, payload, compact: bool = False) -> None:
             json.dump(payload, handle, indent=2, default=str)
 
 
-# Scheduled run times in IST. Keep this in step with the cron entries in
-# .github/workflows/signal.yml -- it is only used to tell the site when the
-# next signal is due.
-SCHEDULE_IST = (
-    [(8, 15)]                                              # pre-open
-    + [(h, m) for h in range(9, 15) for m in (0, 30)        # every 30 min
-       if (h, m) >= (9, 30)]                                # from 09:30
-    + [(15, 0), (16, 15)]                                   # close, post-close
+# The scheduled run times, in UTC, exactly as .github/workflows/signal.yml
+# declares them. Deriving the IST display slots from this one list keeps the
+# site's "next update" from drifting away from what actually runs.
+SCHEDULE_UTC = (
+    [(2, 45)]                                          # pre-open
+    + [(h, m) for h in range(4, 10) for m in (7, 37)]  # intraday, off-peak
+    + [(10, 45)]                                       # post-close
 )
+
+
+def _ist_slots() -> List[tuple]:
+    """Convert the UTC cron slots to IST (UTC+5:30) wall-clock times."""
+    slots = []
+    for hour, minute in SCHEDULE_UTC:
+        total = hour * 60 + minute + 330
+        slots.append(((total // 60) % 24, total % 60))
+    return sorted(set(slots))
+
+
+SCHEDULE_IST = _ist_slots()
 
 
 def _next_run_ist(now: datetime) -> Dict:

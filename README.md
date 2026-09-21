@@ -248,13 +248,24 @@ data is published on weekdays at:
 | IST | What runs |
 |---|---|
 | 08:15 | pre-open signal for the session ahead |
-| 09:30 – 15:00, every 30 min | intraday refresh while NSE is open |
+| 09:37 – 15:07, every 30 min | intraday refresh while NSE is open |
 | 16:15 | post-close signal, resolves the day's prediction |
 
 Actions minutes are unlimited on public repositories, so the intraday cadence
-costs nothing. GitHub queues scheduled jobs on shared infrastructure, so a
-firing can land a few minutes late; the site always shows the real generation
-time and when the next signal is due rather than implying live data.
+costs nothing.
+
+**Scheduled runs are best-effort, and this is a real limitation.** GitHub queues
+them on shared infrastructure; a run can arrive late or be skipped entirely
+under load. The minutes above are deliberately `:07` and `:37` rather than
+`:00`/`:30`, because the hour and half-hour are where every cron on the platform
+piles in and where runs are most often dropped — an earlier `0,30` schedule here
+produced *zero* firings. Even off-peak, treat the cadence as approximate: the
+site always shows the real generation time, and a run can be forced any time
+from **Actions → NIFTY 50 F&O Signal → Run workflow**.
+
+If you need guaranteed timing, GitHub's scheduler is the wrong tool — drive
+`python -m engine.run` from a machine you control, or have an external cron
+service call the `workflow_dispatch` API.
 
 Intraday runs never score a prediction against the session currently trading —
 that candle is still moving, and locking in an outcome against a mid-session
