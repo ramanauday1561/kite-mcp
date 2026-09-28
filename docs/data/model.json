@@ -1,99 +1,99 @@
 {
-  "runs": 27,
-  "resolved": 182,
-  "updated_at": "2026-09-25T14:42:37.069394+00:00",
-  "regime": "low_vol",
+  "runs": 28,
+  "resolved": 183,
+  "updated_at": "2026-09-25T15:34:33.255867+00:00",
+  "regime": "mid_vol",
   "strategy_stats": {
     "ema_trend": {
-      "weight": 0.0277,
-      "hit_rate": 0.4712,
-      "raw_hit_rate": 0.4629,
-      "sample": 20.74,
-      "avg_pnl_pct": 36.21,
-      "regime_sample": 18.45
+      "weight": 0.0439,
+      "hit_rate": 0.4541,
+      "raw_hit_rate": 0.441,
+      "sample": 21.12,
+      "avg_pnl_pct": 34.88,
+      "regime_sample": 14.95
     },
     "macd_momentum": {
-      "weight": 0.2007,
-      "hit_rate": 0.5213,
-      "raw_hit_rate": 0.53,
-      "sample": 14.61,
-      "avg_pnl_pct": 34.37,
-      "regime_sample": 13.01
+      "weight": 0.0439,
+      "hit_rate": 0.508,
+      "raw_hit_rate": 0.5112,
+      "sample": 14.7,
+      "avg_pnl_pct": 33.11,
+      "regime_sample": 13.46
     },
     "rsi_reversion": {
-      "weight": 0.1427,
-      "hit_rate": 0.5571,
-      "raw_hit_rate": 0.6009,
-      "sample": 7.83,
-      "avg_pnl_pct": 24.31,
-      "regime_sample": 6.49
+      "weight": 0.2724,
+      "hit_rate": 0.53,
+      "raw_hit_rate": 0.5518,
+      "sample": 8.27,
+      "avg_pnl_pct": 23.33,
+      "regime_sample": 6.21
     },
     "donchian_breakout": {
-      "weight": 0.0671,
-      "hit_rate": 0.4918,
-      "raw_hit_rate": 0.4871,
-      "sample": 10.55,
-      "avg_pnl_pct": 39.17,
-      "regime_sample": 9.28
+      "weight": 0.0439,
+      "hit_rate": 0.472,
+      "raw_hit_rate": 0.4565,
+      "sample": 10.92,
+      "avg_pnl_pct": 37.66,
+      "regime_sample": 8.65
     },
     "supertrend": {
-      "weight": 0.0277,
-      "hit_rate": 0.4698,
-      "raw_hit_rate": 0.4627,
-      "sample": 25.59,
-      "avg_pnl_pct": 31.02,
-      "regime_sample": 23.01
+      "weight": 0.0439,
+      "hit_rate": 0.4552,
+      "raw_hit_rate": 0.4448,
+      "sample": 25.83,
+      "avg_pnl_pct": 29.88,
+      "regime_sample": 23.87
     },
     "adx_di": {
-      "weight": 0.1375,
-      "hit_rate": 0.5033,
-      "raw_hit_rate": 0.508,
-      "sample": 4.24,
-      "avg_pnl_pct": 45.16,
-      "regime_sample": 3.47
+      "weight": 0.0439,
+      "hit_rate": 0.4856,
+      "raw_hit_rate": 0.4663,
+      "sample": 4.48,
+      "avg_pnl_pct": 42.72,
+      "regime_sample": 2.14
     },
     "bollinger": {
-      "weight": 0.0277,
-      "hit_rate": 0.4628,
-      "raw_hit_rate": 0.4359,
-      "sample": 8.3,
-      "avg_pnl_pct": 19.37,
-      "regime_sample": 7.24
+      "weight": 0.0439,
+      "hit_rate": 0.4459,
+      "raw_hit_rate": 0.4081,
+      "sample": 8.6,
+      "avg_pnl_pct": 18.63,
+      "regime_sample": 8.11
     },
     "volatility_regime": {
-      "weight": 0.0277,
-      "hit_rate": 0.473,
-      "raw_hit_rate": 0.4528,
-      "sample": 8.01,
-      "avg_pnl_pct": 11.83,
-      "regime_sample": 6.9
+      "weight": 0.0439,
+      "hit_rate": 0.4505,
+      "raw_hit_rate": 0.4154,
+      "sample": 8.47,
+      "avg_pnl_pct": 11.32,
+      "regime_sample": 8.91
     },
     "price_action": {
-      "weight": 0.0277,
-      "hit_rate": 0.4491,
-      "raw_hit_rate": 0.4257,
-      "sample": 13.1,
-      "avg_pnl_pct": 12.91,
-      "regime_sample": 11.5
+      "weight": 0.0439,
+      "hit_rate": 0.4318,
+      "raw_hit_rate": 0.4014,
+      "sample": 13.47,
+      "avg_pnl_pct": 12.41,
+      "regime_sample": 12.9
     },
     "momentum_roc": {
-      "weight": 0.2305,
-      "hit_rate": 0.5257,
-      "raw_hit_rate": 0.5368,
-      "sample": 13.84,
-      "avg_pnl_pct": 27.17,
-      "regime_sample": 11.8
+      "weight": 0.0439,
+      "hit_rate": 0.5057,
+      "raw_hit_rate": 0.5082,
+      "sample": 14.18,
+      "avg_pnl_pct": 26.03,
+      "regime_sample": 12.46
     },
     "seasonality": {
-      "weight": 0.0277,
-      "hit_rate": 0.4824,
-      "raw_hit_rate": 0.4655,
-      "sample": 6.25,
-      "avg_pnl_pct": 10.34,
-      "regime_sample": 5.77
+      "weight": 0.2448,
+      "hit_rate": 0.4693,
+      "raw_hit_rate": 0.4405,
+      "sample": 6.4,
+      "avg_pnl_pct": 9.95,
+      "regime_sample": 6.0
     },
     "oi_pcr": {
-      "weight": 0.0277,
+      "weight": 0.0439,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -101,7 +101,7 @@
       "regime_sample": 0.0
     },
     "max_pain": {
-      "weight": 0.0277,
+      "weight": 0.0439,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -111,63 +111,63 @@
   },
   "calibration": {
     "-1": {
-      "n": 3.8269013881901786,
-      "up": 1.0474307505848368
+      "n": 3.712094346544473,
+      "up": 1.0160078280672917
     },
     "-2": {
-      "n": 1.0108255639446952,
-      "up": 0.07704867666497371
+      "n": 0.9805007970263544,
+      "up": 0.07473721636502449
     },
     "-3": {
-      "n": 5.182548611444283,
-      "up": 3.055766034296288
+      "n": 5.027072153100955,
+      "up": 2.964093053267399
     },
     "-4": {
-      "n": 3.109117026235374,
-      "up": 2.7225827995004472
+      "n": 3.0158435154483123,
+      "up": 2.640905315515434
     },
     "-5": {
-      "n": 4.433522555444304,
-      "up": 1.0269932942969557
+      "n": 4.300516878780974,
+      "up": 0.9961834954680471
     },
     "-6": {
-      "n": 1.8177760783684125,
-      "up": 1.0803519514734838
+      "n": 2.76324279601736,
+      "up": 2.047941392929279
     },
     "0": {
-      "n": 2.712583725607758,
-      "up": 1.376763536462763
+      "n": 2.631206213839525,
+      "up": 1.33546063036888
     },
     "1": {
-      "n": 1.3993983919962583,
-      "up": 0.6267293862407788
+      "n": 1.3574164402363704,
+      "up": 0.6079275046535554
     },
     "2": {
-      "n": 2.6085949557019252,
-      "up": 1.5941894527851797
+      "n": 2.5303371070308676,
+      "up": 1.5463637692016243
     },
     "3": {
-      "n": 3.6363706533052897,
-      "up": 0.8155343871451505
+      "n": 3.527279533706131,
+      "up": 0.7910683555307959
     },
     "4": {
-      "n": 0.9108997281917668,
-      "up": 0.5103387580056494
+      "n": 0.8835727363460137,
+      "up": 0.49502859526547993
     },
     "5": {
-      "n": 2.0334751149009307,
-      "up": 0.7335369408189488
+      "n": 1.9724708614539028,
+      "up": 0.7115308325943803
     },
     "6": {
-      "n": 0.21689084812310733,
+      "n": 0.21038412267941412,
       "up": 0.0
     },
     "7": {
-      "n": 0.07741509986524546,
+      "n": 0.0750926468692881,
       "up": 0.0
     },
     "8": {
-      "n": 0.011361742364969873,
+      "n": 0.011020890094020776,
       "up": 0.0
     }
   }
