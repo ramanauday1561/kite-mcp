@@ -1,96 +1,96 @@
 {
-  "runs": 33,
-  "resolved": 184,
-  "updated_at": "2026-09-29T10:32:33.820141+00:00",
+  "runs": 34,
+  "resolved": 185,
+  "updated_at": "2026-09-29T16:38:43.394509+00:00",
   "regime": "mid_vol",
   "strategy_stats": {
     "ema_trend": {
       "weight": 0.0435,
-      "hit_rate": 0.4742,
-      "raw_hit_rate": 0.467,
-      "sample": 21.49,
-      "avg_pnl_pct": 43.09,
-      "regime_sample": 14.95
+      "hit_rate": 0.4933,
+      "raw_hit_rate": 0.4914,
+      "sample": 21.84,
+      "avg_pnl_pct": 40.39,
+      "regime_sample": 15.51
     },
     "macd_momentum": {
-      "weight": 0.0435,
-      "hit_rate": 0.513,
-      "raw_hit_rate": 0.5184,
-      "sample": 14.47,
-      "avg_pnl_pct": 41.38,
-      "regime_sample": 13.46
+      "weight": 0.0473,
+      "hit_rate": 0.5281,
+      "raw_hit_rate": 0.5395,
+      "sample": 14.68,
+      "avg_pnl_pct": 38.75,
+      "regime_sample": 13.7
     },
     "rsi_reversion": {
-      "weight": 0.2895,
-      "hit_rate": 0.539,
-      "raw_hit_rate": 0.5672,
+      "weight": 0.2152,
+      "hit_rate": 0.529,
+      "raw_hit_rate": 0.5499,
       "sample": 8.31,
-      "avg_pnl_pct": 32.83,
-      "regime_sample": 6.21
+      "avg_pnl_pct": 31.52,
+      "regime_sample": 6.28
     },
     "donchian_breakout": {
-      "weight": 0.0435,
-      "hit_rate": 0.488,
-      "raw_hit_rate": 0.4815,
-      "sample": 11.1,
-      "avg_pnl_pct": 46.17,
-      "regime_sample": 8.65
+      "weight": 0.0502,
+      "hit_rate": 0.5169,
+      "raw_hit_rate": 0.5256,
+      "sample": 11.77,
+      "avg_pnl_pct": 43.22,
+      "regime_sample": 9.39
     },
     "supertrend": {
       "weight": 0.0435,
-      "hit_rate": 0.4724,
-      "raw_hit_rate": 0.4661,
-      "sample": 26.05,
-      "avg_pnl_pct": 38.26,
-      "regime_sample": 23.87
+      "hit_rate": 0.4889,
+      "raw_hit_rate": 0.4864,
+      "sample": 26.27,
+      "avg_pnl_pct": 35.74,
+      "regime_sample": 24.15
     },
     "adx_di": {
       "weight": 0.0435,
-      "hit_rate": 0.5042,
-      "raw_hit_rate": 0.5096,
-      "sample": 4.73,
-      "avg_pnl_pct": 54.14,
-      "regime_sample": 2.14
+      "hit_rate": 0.5261,
+      "raw_hit_rate": 0.5569,
+      "sample": 5.08,
+      "avg_pnl_pct": 49.75,
+      "regime_sample": 2.57
     },
     "bollinger": {
       "weight": 0.0435,
-      "hit_rate": 0.4626,
-      "raw_hit_rate": 0.4369,
-      "sample": 8.76,
-      "avg_pnl_pct": 27.74,
-      "regime_sample": 8.11
+      "hit_rate": 0.4521,
+      "raw_hit_rate": 0.4197,
+      "sample": 8.85,
+      "avg_pnl_pct": 26.7,
+      "regime_sample": 8.21
     },
     "volatility_regime": {
       "weight": 0.0435,
-      "hit_rate": 0.4373,
-      "raw_hit_rate": 0.3939,
-      "sample": 8.66,
-      "avg_pnl_pct": 10.84,
-      "regime_sample": 8.91
+      "hit_rate": 0.4642,
+      "raw_hit_rate": 0.4405,
+      "sample": 9.1,
+      "avg_pnl_pct": 9.08,
+      "regime_sample": 9.34
     },
     "price_action": {
       "weight": 0.0435,
-      "hit_rate": 0.4192,
-      "raw_hit_rate": 0.3837,
-      "sample": 13.67,
-      "avg_pnl_pct": 11.94,
-      "regime_sample": 12.9
+      "hit_rate": 0.4419,
+      "raw_hit_rate": 0.417,
+      "sample": 14.02,
+      "avg_pnl_pct": 10.3,
+      "regime_sample": 13.27
     },
     "momentum_roc": {
-      "weight": 0.0435,
-      "hit_rate": 0.5238,
-      "raw_hit_rate": 0.5337,
-      "sample": 14.51,
-      "avg_pnl_pct": 35.71,
-      "regime_sample": 12.46
+      "weight": 0.0797,
+      "hit_rate": 0.5407,
+      "raw_hit_rate": 0.5572,
+      "sample": 14.82,
+      "avg_pnl_pct": 32.97,
+      "regime_sample": 12.84
     },
     "seasonality": {
-      "weight": 0.2317,
-      "hit_rate": 0.4642,
-      "raw_hit_rate": 0.4304,
-      "sample": 6.36,
-      "avg_pnl_pct": 9.57,
-      "regime_sample": 6.0
+      "weight": 0.2593,
+      "hit_rate": 0.4702,
+      "raw_hit_rate": 0.4418,
+      "sample": 6.29,
+      "avg_pnl_pct": 8.03,
+      "regime_sample": 5.94
     },
     "oi_pcr": {
       "weight": 0.0435,
@@ -111,63 +111,63 @@
   },
   "calibration": {
     "-1": {
-      "n": 3.600731516148139,
-      "up": 0.985527593225273
+      "n": 3.4927095706636946,
+      "up": 0.9559617654285147
     },
     "-2": {
-      "n": 0.9510857731155637,
-      "up": 0.07249509987407375
+      "n": 1.9225531999220968,
+      "up": 0.07032024687785153
     },
     "-3": {
-      "n": 4.876259988507925,
-      "up": 2.875170261669377
+      "n": 4.729972188852687,
+      "up": 2.788915153819296
     },
     "-4": {
-      "n": 3.925368209984863,
-      "up": 2.561678156049971
+      "n": 3.807607163685317,
+      "up": 2.4848278113684716
     },
     "-5": {
-      "n": 4.171501372417545,
-      "up": 0.9662979906040057
+      "n": 4.046356331245018,
+      "up": 0.9373090508858855
     },
     "-6": {
-      "n": 2.680345512136839,
-      "up": 1.9865031511414006
+      "n": 2.599935146772734,
+      "up": 1.9269080566071586
     },
     "0": {
-      "n": 2.5522700274243393,
-      "up": 1.2953968114578136
+      "n": 2.475701926601609,
+      "up": 1.2565349071140792
     },
     "1": {
-      "n": 1.3166939470292793,
-      "up": 0.5896896795139487
+      "n": 1.2771931286184008,
+      "up": 0.5719989891285302
     },
     "2": {
-      "n": 2.4544269938199417,
-      "up": 1.4999728561255756
+      "n": 2.3807941840053433,
+      "up": 1.4549736704418084
     },
     "3": {
-      "n": 3.421461147694947,
-      "up": 0.767336304864872
+      "n": 3.3188173132640983,
+      "up": 0.7443162157189258
     },
     "4": {
-      "n": 0.8570655542556334,
-      "up": 0.4801777374075155
+      "n": 0.8313535876279643,
+      "up": 0.46577240528529
     },
     "5": {
-      "n": 1.9132967356102857,
-      "up": 0.6901849076165489
+      "n": 1.8558978335419771,
+      "up": 0.6694793603880524
     },
     "6": {
-      "n": 0.20407259899903168,
+      "n": 0.19795042102906074,
       "up": 0.0
     },
     "7": {
-      "n": 0.07283986746320946,
+      "n": 0.07065467143931317,
       "up": 0.0
     },
     "8": {
-      "n": 0.010690263391200152,
+      "n": 0.010369555489464147,
       "up": 0.0
     }
   }
