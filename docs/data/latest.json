@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-01T14:56:35.791774+05:30",
-  "generated_at_ist": "01 Oct 2026, 02:56 PM IST",
+  "generated_at": "2026-10-01T16:20:07.664139+05:30",
+  "generated_at_ist": "01 Oct 2026, 04:20 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-10-01",
-  "spot": 22417.35,
-  "change_pct": -0.9,
+  "spot": 22421.95,
+  "change_pct": -0.88,
   "regime": "mid_vol",
   "recommendation": {
     "action": "PUT",
     "bias": "PUT",
-    "confidence": 0.6866,
-    "probability_up": 0.3134,
+    "confidence": 0.6863,
+    "probability_up": 0.3137,
     "reason": "Ensemble score -0.51 calibrates to a 69% chance of a down move \u2014 high conviction.",
     "calibration_basis": "7 resolved signals in this score band (observed 43% up)"
   },
   "ensemble": {
-    "score": -0.5149,
+    "score": -0.5135,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 2,
@@ -24,15 +24,15 @@
     "agreement": 0.818,
     "contributions": {
       "ema_trend": -0.0348,
-      "macd_momentum": -0.1021,
-      "rsi_reversion": 0.0475,
-      "donchian_breakout": -0.1098,
+      "macd_momentum": -0.1019,
+      "rsi_reversion": 0.0474,
+      "donchian_breakout": -0.1089,
       "supertrend": -0.0348,
       "adx_di": -0.1121,
       "bollinger": 0.0306,
       "volatility_regime": -0.0244,
-      "price_action": -0.0157,
-      "momentum_roc": -0.1265,
+      "price_action": -0.0151,
+      "momentum_roc": -0.1266,
       "seasonality": -0.0327
     }
   },
@@ -44,32 +44,32 @@
     "atm_strike": 22400.0,
     "expiry": "2026-10-06",
     "days_to_expiry": 5,
-    "iv_used_pct": 14.53,
-    "theoretical_premium": 112.17,
-    "delta": -0.406,
-    "gamma": 0.001017,
-    "theta_per_day": -13.15,
-    "vega": 10.18,
-    "atm_premium": 134.07,
-    "stop_loss": 72.91,
-    "target": 185.08,
+    "iv_used_pct": 14.45,
+    "theoretical_premium": 109.53,
+    "delta": -0.4009,
+    "gamma": 0.001019,
+    "theta_per_day": -13.04,
+    "vega": 10.14,
+    "atm_premium": 131.17,
+    "stop_loss": 71.19,
+    "target": 180.72,
     "lot_size": 75,
     "suggested_lots": 1,
-    "capital_at_risk": 2944.5,
-    "premium_outlay": 8412.75,
-    "capital_deployed_pct": 4.206,
-    "breakeven": 22237.83,
+    "capital_at_risk": 2875.5,
+    "premium_outlay": 8214.75,
+    "capital_deployed_pct": 4.107,
+    "breakeven": 22240.47,
     "notes": [
       "IV is rich (percentile 72) \u2014 a 22350/22150 debit spread cuts the vega bleed versus a naked long.",
-      "Theta burns about Rs 13.2 per day per unit (Rs 986 per lot) \u2014 this is a 5-day view, not a hold."
+      "Theta burns about Rs 13.0 per day per unit (Rs 978 per lot) \u2014 this is a 5-day view, not a hold."
     ],
     "short_leg": {
       "strike": 22150.0,
-      "premium": 49.03,
-      "delta": -0.2218
+      "premium": 47.42,
+      "delta": -0.217
     },
-    "net_debit": 63.14,
-    "max_profit": 136.86
+    "net_debit": 62.11,
+    "max_profit": 137.89
   },
   "expiry": {
     "date": "2026-10-06",
@@ -80,12 +80,12 @@
     {
       "name": "momentum_roc",
       "label": "Rate of Change",
-      "score": -0.7287524965290022,
-      "confidence": 0.9287524965290022,
-      "rationale": "5-day ROC -2.80%, 20-day ROC -6.26%, price z-score -2.2.",
+      "score": -0.7298016673360723,
+      "confidence": 0.9298016673360723,
+      "rationale": "5-day ROC -2.78%, 20-day ROC -6.24%, price z-score -2.2.",
       "abstained": false,
       "weight": 0.1622,
-      "contribution": -0.1265,
+      "contribution": -0.1266,
       "hit_rate": 0.5618,
       "sample": 15.37
     },
@@ -104,36 +104,36 @@
     {
       "name": "donchian_breakout",
       "label": "20-Day Range Breakout",
-      "score": -0.8092402970977159,
+      "score": -0.8029210673192513,
       "confidence": 1.0,
       "rationale": "Price broke below the 20-day low (22,570).",
       "abstained": false,
       "weight": 0.1268,
-      "contribution": -0.1098,
+      "contribution": -0.1089,
       "hit_rate": 0.5346,
       "sample": 12.08
     },
     {
       "name": "macd_momentum",
       "label": "MACD Momentum",
-      "score": -0.8745873239200691,
+      "score": -0.872526246866883,
       "confidence": 1.0,
-      "rationale": "MACD -351.2 vs signal -280.2; histogram -70.9 and expanding \u2014 momentum is leaning down.",
+      "rationale": "MACD -350.8 vs signal -280.2; histogram -70.6 and expanding \u2014 momentum is leaning down.",
       "abstained": false,
       "weight": 0.1092,
-      "contribution": -0.1021,
+      "contribution": -0.1019,
       "hit_rate": 0.5441,
       "sample": 14.96
     },
     {
       "name": "rsi_reversion",
       "label": "RSI Mean Reversion",
-      "score": 0.7072316668154557,
-      "confidence": 0.9072316668154556,
+      "score": 0.7053682789850313,
+      "confidence": 0.9053682789850312,
       "rationale": "RSI(14) oversold at 23 \u2014 bounce setup.",
       "abstained": false,
       "weight": 0.0628,
-      "contribution": 0.0475,
+      "contribution": 0.0474,
       "hit_rate": 0.5109,
       "sample": 8.55
     },
@@ -142,7 +142,7 @@
       "label": "EMA Trend Stack",
       "score": -1.0,
       "confidence": 1.0,
-      "rationale": "Spot 22,417 is below the 21-EMA (23,244); 9/21/50 stack reads bearish, 21-EMA slope -0.94% over 3 sessions.",
+      "rationale": "Spot 22,422 is below the 21-EMA (23,245); 9/21/50 stack reads bearish, 21-EMA slope -0.94% over 3 sessions.",
       "abstained": false,
       "weight": 0.0326,
       "contribution": -0.0348,
@@ -190,7 +190,7 @@
       "label": "India VIX Regime",
       "score": -0.7,
       "confidence": 0.95,
-      "rationale": "India VIX 14.53: VIX rose 7.7%, at the 72th percentile.",
+      "rationale": "India VIX 14.45: VIX rose 7.2%, at the 72th percentile.",
       "abstained": false,
       "weight": 0.0326,
       "contribution": -0.0244,
@@ -200,12 +200,12 @@
     {
       "name": "price_action",
       "label": "Candle & Volume Structure",
-      "score": -0.4516873919630734,
-      "confidence": 0.6516873919630735,
-      "rationale": "Last close finished mid-range of the day's range (51%), gap -0.34%, OBV slope negative.",
+      "score": -0.4329754750344498,
+      "confidence": 0.6329754750344498,
+      "rationale": "Last close finished mid-range of the day's range (52%), gap -0.34%, OBV slope negative.",
       "abstained": false,
       "weight": 0.0326,
-      "contribution": -0.0157,
+      "contribution": -0.0151,
       "hit_rate": 0.4328,
       "sample": 14.03
     },
@@ -235,20 +235,20 @@
     }
   ],
   "market_data": {
-    "vix": 14.532500267028809,
-    "vix_change_pct": 7.73,
+    "vix": 14.454999923706055,
+    "vix_change_pct": 7.15,
     "vix_percentile": 72.22222222222223,
     "atr_pct": 0.99,
-    "rsi": 22.5,
+    "rsi": 22.6,
     "adx": 38.7,
-    "realized_vol": 10.36,
+    "realized_vol": 10.35,
     "source": "yahoo"
   },
   "option_chain": null,
   "learning": {
-    "runs": 37,
+    "runs": 38,
     "resolved": 186,
-    "resolved_this_run": 1,
+    "resolved_this_run": 0,
     "regime": "mid_vol",
     "strategy_stats": {
       "ema_trend": {
@@ -1219,14 +1219,14 @@
     ]
   },
   "storage": {
-    "archived_this_run": 1,
+    "archived_this_run": 0,
     "total_archived": 188,
     "csv": "data/signals.csv",
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-10-01T15:07:00+05:30",
-    "label": "01 Oct, 03:07 PM IST"
+    "at": "2026-10-02T08:15:00+05:30",
+    "label": "02 Oct, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
@@ -1235,7 +1235,6 @@
     "option_chain_available": false,
     "notes": [
       "nse option chain http 404",
-      "resolved 1 prediction(s) and updated the model",
       "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
     ]
   },
