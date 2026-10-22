@@ -1,213 +1,213 @@
 {
-  "generated_at": "2026-10-21T21:08:42.599841+05:30",
-  "generated_at_ist": "21 Oct 2026, 09:08 PM IST",
+  "generated_at": "2026-10-22T13:28:35.872746+05:30",
+  "generated_at_ist": "22 Oct 2026, 01:28 PM IST",
   "index": "NIFTY 50",
-  "session_date": "2026-10-21",
-  "spot": 22811.35,
-  "change_pct": -0.34,
+  "session_date": "2026-10-22",
+  "spot": 22613.05,
+  "change_pct": -0.87,
   "regime": "mid_vol",
   "recommendation": {
-    "action": "NO_TRADE",
+    "action": "PUT",
     "bias": "PUT",
-    "confidence": 0.6127,
-    "probability_up": 0.3873,
-    "reason": "Standing aside: ensemble score -0.05 is inside the \u00b10.12 no-trade band.",
-    "calibration_basis": "6 resolved signals in this score band (observed 27% up)"
+    "confidence": 0.6289,
+    "probability_up": 0.3711,
+    "reason": "Ensemble score -0.21 calibrates to a 63% chance of a down move \u2014 moderate conviction.",
+    "calibration_basis": "7 resolved signals in this score band (observed 37% up)"
   },
   "ensemble": {
-    "score": -0.053,
+    "score": -0.2056,
     "participation": 0.846,
     "active": 11,
-    "bullish_votes": 3,
-    "bearish_votes": 6,
-    "neutral_votes": 2,
-    "agreement": 0.545,
+    "bullish_votes": 2,
+    "bearish_votes": 9,
+    "neutral_votes": 0,
+    "agreement": 0.818,
     "contributions": {
-      "ema_trend": -0.0481,
-      "macd_momentum": 0.032,
-      "rsi_reversion": -0.0372,
-      "donchian_breakout": -0.0011,
-      "supertrend": 0.0498,
-      "adx_di": -0.0113,
-      "bollinger": 0.0076,
-      "volatility_regime": -0.0349,
-      "price_action": 0.0096,
-      "momentum_roc": -0.0121,
-      "seasonality": -0.0075
+      "ema_trend": -0.0477,
+      "macd_momentum": 0.0251,
+      "rsi_reversion": -0.0902,
+      "donchian_breakout": -0.0097,
+      "supertrend": 0.0477,
+      "adx_di": -0.0163,
+      "bollinger": -0.0433,
+      "volatility_regime": -0.0199,
+      "price_action": -0.0217,
+      "momentum_roc": -0.0199,
+      "seasonality": -0.0097
     }
   },
   "trade": {
     "structure": "debit_spread",
     "option_type": "PE",
     "direction": "PUT",
-    "strike": 22700.0,
-    "atm_strike": 22800.0,
+    "strike": 22550.0,
+    "atm_strike": 22600.0,
     "expiry": "2026-10-27",
-    "days_to_expiry": 6,
-    "iv_used_pct": 15.68,
-    "theoretical_premium": 122.52,
-    "delta": -0.3795,
-    "gamma": 0.00083,
-    "theta_per_day": -12.98,
-    "vega": 11.13,
-    "atm_premium": 165.45,
-    "stop_loss": 79.64,
-    "target": 202.16,
+    "days_to_expiry": 5,
+    "iv_used_pct": 16.09,
+    "theoretical_premium": 131.22,
+    "delta": -0.4188,
+    "gamma": 0.000917,
+    "theta_per_day": -14.92,
+    "vega": 10.34,
+    "atm_premium": 153.67,
+    "stop_loss": 85.29,
+    "target": 216.51,
     "lot_size": 75,
     "suggested_lots": 0,
     "capital_at_risk": 0.0,
     "premium_outlay": 0.0,
     "capital_deployed_pct": 0.0,
-    "breakeven": 22577.48,
+    "breakeven": 22418.78,
     "notes": [
-      "IV is rich (percentile 75) \u2014 a 22700/22500 debit spread cuts the vega bleed versus a naked long.",
-      "Theta burns about Rs 13.0 per day per unit (Rs 974 per lot) \u2014 this is a 6-day view, not a hold."
+      "IV is rich (percentile 76) \u2014 a 22550/22350 debit spread cuts the vega bleed versus a naked long.",
+      "Theta burns about Rs 14.9 per day per unit (Rs 1,119 per lot) \u2014 this is a 5-day view, not a hold."
     ],
     "short_leg": {
-      "strike": 22500.0,
-      "premium": 61.04,
-      "delta": -0.2275
+      "strike": 22350.0,
+      "premium": 63.72,
+      "delta": -0.2488
     },
-    "net_debit": 61.48,
-    "max_profit": 138.52
+    "net_debit": 67.5,
+    "max_profit": 132.5
   },
   "expiry": {
     "date": "2026-10-27",
-    "days_to_expiry": 6,
+    "days_to_expiry": 5,
     "source": "calculated"
   },
   "votes": [
+    {
+      "name": "rsi_reversion",
+      "label": "RSI Mean Reversion",
+      "score": -0.3011660318961399,
+      "confidence": 0.50116603189614,
+      "rationale": "RSI(14) neutral zone at 43, mildly negative.",
+      "abstained": false,
+      "weight": 0.2734,
+      "contribution": -0.0902,
+      "hit_rate": 0.5405,
+      "sample": 9.19
+    },
+    {
+      "name": "ema_trend",
+      "label": "EMA Trend Stack",
+      "score": -1.0,
+      "confidence": 1.0,
+      "rationale": "Spot 22,613 is below the 21-EMA (22,872); 9/21/50 stack reads bearish, 21-EMA slope -0.16% over 3 sessions.",
+      "abstained": false,
+      "weight": 0.0436,
+      "contribution": -0.0477,
+      "hit_rate": 0.519,
+      "sample": 25.03
+    },
     {
       "name": "supertrend",
       "label": "Supertrend",
       "score": 1.0,
       "confidence": 1.0,
-      "rationale": "Supertrend is bullish with the band at 22,170 (2.8% from spot).",
+      "rationale": "Supertrend is bullish with the band at 22,170 (2.0% from spot).",
       "abstained": false,
-      "weight": 0.0453,
-      "contribution": 0.0498,
-      "hit_rate": 0.4772,
-      "sample": 28.31
-    },
-    {
-      "name": "ema_trend",
-      "label": "EMA Trend Stack",
-      "score": -0.9653908565442724,
-      "confidence": 1.0,
-      "rationale": "Spot 22,811 is below the 21-EMA (22,898); 9/21/50 stack reads bearish, 21-EMA slope +0.06% over 3 sessions.",
-      "abstained": false,
-      "weight": 0.0453,
-      "contribution": -0.0481,
-      "hit_rate": 0.5045,
-      "sample": 24.87
-    },
-    {
-      "name": "rsi_reversion",
-      "label": "RSI Mean Reversion",
-      "score": -0.14143604816414534,
-      "confidence": 0.34143604816414536,
-      "rationale": "RSI(14) neutral zone at 46, mildly negative.",
-      "abstained": false,
-      "weight": 0.2393,
-      "contribution": -0.0372,
-      "hit_rate": 0.5339,
-      "sample": 9.25
-    },
-    {
-      "name": "volatility_regime",
-      "label": "India VIX Regime",
-      "score": -0.7,
-      "confidence": 0.95,
-      "rationale": "India VIX 15.68: VIX rose 6.1%, at the 75th percentile.",
-      "abstained": false,
-      "weight": 0.0453,
-      "contribution": -0.0349,
-      "hit_rate": 0.3983,
-      "sample": 10.69
-    },
-    {
-      "name": "macd_momentum",
-      "label": "MACD Momentum",
-      "score": 0.6432486512104914,
-      "confidence": 0.8432486512104913,
-      "rationale": "MACD -170.5 vs signal -253.1; histogram +82.6 and contracting \u2014 momentum is building to the upside.",
-      "abstained": false,
-      "weight": 0.0453,
-      "contribution": 0.032,
-      "hit_rate": 0.5145,
-      "sample": 16.18
-    },
-    {
-      "name": "momentum_roc",
-      "label": "Rate of Change",
-      "score": -0.24261844833060822,
-      "confidence": 0.44261844833060826,
-      "rationale": "5-day ROC +0.39%, 20-day ROC -2.58%, price z-score +0.1.",
-      "abstained": false,
-      "weight": 0.0453,
-      "contribution": -0.0121,
-      "hit_rate": 0.5229,
-      "sample": 16.65
-    },
-    {
-      "name": "adx_di",
-      "label": "ADX Directional Strength",
-      "score": -0.22611716222055656,
-      "confidence": 1.0,
-      "rationale": "ADX 37 signals a strong trend; +DI 16 vs -DI 26 favours the downside.",
-      "abstained": false,
-      "weight": 0.0453,
-      "contribution": -0.0113,
-      "hit_rate": 0.5167,
-      "sample": 8.38
-    },
-    {
-      "name": "price_action",
-      "label": "Candle & Volume Structure",
-      "score": 0.1936807307727308,
-      "confidence": 0.3936807307727308,
-      "rationale": "Last close finished mid-range of the day's range (34%), gap +0.56%, OBV slope positive.",
-      "abstained": false,
-      "weight": 0.0453,
-      "contribution": 0.0096,
-      "hit_rate": 0.4109,
-      "sample": 16.08
+      "weight": 0.0436,
+      "contribution": 0.0477,
+      "hit_rate": 0.4634,
+      "sample": 28.46
     },
     {
       "name": "bollinger",
       "label": "Bollinger Position & Squeeze",
-      "score": 0.02627588148851241,
-      "confidence": 0.2262758814885124,
-      "rationale": "Price sits at 52% of the band width.",
+      "score": -0.1683695850278804,
+      "confidence": 0.3683695850278804,
+      "rationale": "Price sits at 38% of the band width.",
       "abstained": false,
-      "weight": 0.2626,
-      "contribution": 0.0076,
-      "hit_rate": 0.5145,
-      "sample": 10.15
+      "weight": 0.2349,
+      "contribution": -0.0433,
+      "hit_rate": 0.512,
+      "sample": 9.91
     },
     {
-      "name": "seasonality",
-      "label": "Weekday Seasonality",
-      "score": -0.15128758117561988,
-      "confidence": 0.3012875811756199,
-      "rationale": "Thursday has averaged -0.07% over 77 sessions of this index's own history \u2014 a mild headwind.",
+      "name": "macd_momentum",
+      "label": "MACD Momentum",
+      "score": 0.5251305917961061,
+      "confidence": 0.7251305917961062,
+      "rationale": "MACD -173.0 vs signal -237.1; histogram +64.1 and contracting \u2014 momentum is building to the upside.",
       "abstained": false,
-      "weight": 0.0453,
-      "contribution": -0.0075,
-      "hit_rate": 0.395,
-      "sample": 6.78
+      "weight": 0.0436,
+      "contribution": 0.0251,
+      "hit_rate": 0.4921,
+      "sample": 16.67
+    },
+    {
+      "name": "price_action",
+      "label": "Candle & Volume Structure",
+      "score": -0.455329235462605,
+      "confidence": 0.655329235462605,
+      "rationale": "Last close finished near the low of the day's range (25%), gap -0.54%, OBV slope positive.",
+      "abstained": false,
+      "weight": 0.0436,
+      "contribution": -0.0217,
+      "hit_rate": 0.4259,
+      "sample": 16.14
+    },
+    {
+      "name": "volatility_regime",
+      "label": "India VIX Regime",
+      "score": -0.41657063425990576,
+      "confidence": 0.6665706342599058,
+      "rationale": "India VIX 16.09: VIX rose 2.6%, at the 76th percentile.",
+      "abstained": false,
+      "weight": 0.0436,
+      "contribution": -0.0199,
+      "hit_rate": 0.4214,
+      "sample": 10.99
+    },
+    {
+      "name": "momentum_roc",
+      "label": "Rate of Change",
+      "score": -0.41705974588921424,
+      "confidence": 0.6170597458892142,
+      "rationale": "5-day ROC -0.04%, 20-day ROC -3.07%, price z-score -0.5.",
+      "abstained": false,
+      "weight": 0.0436,
+      "contribution": -0.0199,
+      "hit_rate": 0.5164,
+      "sample": 16.42
+    },
+    {
+      "name": "adx_di",
+      "label": "ADX Directional Strength",
+      "score": -0.26508057259240136,
+      "confidence": 1.0,
+      "rationale": "ADX 36 signals a strong trend; +DI 15 vs -DI 27 favours the downside.",
+      "abstained": false,
+      "weight": 0.0561,
+      "contribution": -0.0163,
+      "hit_rate": 0.521,
+      "sample": 8.27
     },
     {
       "name": "donchian_breakout",
       "label": "20-Day Range Breakout",
-      "score": -0.021175396376624554,
-      "confidence": 0.22117539637662456,
-      "rationale": "Price inside the 22,180-23,489 range, 48% of the way up.",
+      "score": -0.20294811408724087,
+      "confidence": 0.40294811408724085,
+      "rationale": "Price inside the 22,180-23,489 range, 33% of the way up.",
       "abstained": false,
-      "weight": 0.0453,
-      "contribution": -0.0011,
-      "hit_rate": 0.4972,
-      "sample": 12.11
+      "weight": 0.0436,
+      "contribution": -0.0097,
+      "hit_rate": 0.4959,
+      "sample": 11.79
+    },
+    {
+      "name": "seasonality",
+      "label": "Weekday Seasonality",
+      "score": -0.2023799537307004,
+      "confidence": 0.3523799537307004,
+      "rationale": "Friday has averaged -0.09% over 77 sessions of this index's own history \u2014 a mild headwind.",
+      "abstained": false,
+      "weight": 0.0436,
+      "contribution": -0.0097,
+      "hit_rate": 0.3991,
+      "sample": 6.63
     },
     {
       "name": "oi_pcr",
@@ -216,7 +216,7 @@
       "confidence": 0.0,
       "rationale": "NSE option chain unavailable this run",
       "abstained": true,
-      "weight": 0.0453,
+      "weight": 0.0436,
       "contribution": 0.0,
       "hit_rate": 0.5,
       "sample": 0.0
@@ -228,119 +228,119 @@
       "confidence": 0.0,
       "rationale": "NSE option chain unavailable this run",
       "abstained": true,
-      "weight": 0.0453,
+      "weight": 0.0436,
       "contribution": 0.0,
       "hit_rate": 0.5,
       "sample": 0.0
     }
   ],
   "market_data": {
-    "vix": 15.675000190734863,
-    "vix_change_pct": 6.13,
-    "vix_percentile": 75.0,
+    "vix": 16.087499618530273,
+    "vix_change_pct": 2.6,
+    "vix_percentile": 75.7936507936508,
     "atr_pct": 1.27,
-    "rsi": 46.3,
-    "adx": 37.0,
-    "realized_vol": 16.43,
+    "rsi": 42.7,
+    "adx": 36.4,
+    "realized_vol": 16.63,
     "source": "yahoo"
   },
   "option_chain": null,
   "learning": {
-    "runs": 86,
-    "resolved": 198,
-    "resolved_this_run": 0,
+    "runs": 87,
+    "resolved": 199,
+    "resolved_this_run": 1,
     "regime": "mid_vol",
     "strategy_stats": {
       "ema_trend": {
-        "weight": 0.0453,
-        "hit_rate": 0.5045,
-        "raw_hit_rate": 0.5055,
-        "sample": 24.87,
-        "avg_pnl_pct": 34.51,
-        "regime_sample": 20.6
+        "weight": 0.0436,
+        "hit_rate": 0.519,
+        "raw_hit_rate": 0.5236,
+        "sample": 25.03,
+        "avg_pnl_pct": 33.34,
+        "regime_sample": 20.9
       },
       "macd_momentum": {
-        "weight": 0.0453,
-        "hit_rate": 0.5145,
-        "raw_hit_rate": 0.5199,
-        "sample": 16.18,
-        "avg_pnl_pct": 32.52,
-        "regime_sample": 15.52
+        "weight": 0.0436,
+        "hit_rate": 0.4921,
+        "raw_hit_rate": 0.4893,
+        "sample": 16.67,
+        "avg_pnl_pct": 31.42,
+        "regime_sample": 16.04
       },
       "rsi_reversion": {
-        "weight": 0.2393,
-        "hit_rate": 0.5339,
-        "raw_hit_rate": 0.5559,
-        "sample": 9.25,
-        "avg_pnl_pct": 23.35,
-        "regime_sample": 7.87
+        "weight": 0.2734,
+        "hit_rate": 0.5405,
+        "raw_hit_rate": 0.5669,
+        "sample": 9.19,
+        "avg_pnl_pct": 22.49,
+        "regime_sample": 7.86
       },
       "donchian_breakout": {
-        "weight": 0.0453,
-        "hit_rate": 0.4972,
-        "raw_hit_rate": 0.4958,
-        "sample": 12.11,
-        "avg_pnl_pct": 38.85,
-        "regime_sample": 10.51
+        "weight": 0.0436,
+        "hit_rate": 0.4959,
+        "raw_hit_rate": 0.4937,
+        "sample": 11.79,
+        "avg_pnl_pct": 37.5,
+        "regime_sample": 10.24
       },
       "supertrend": {
-        "weight": 0.0453,
-        "hit_rate": 0.4772,
-        "raw_hit_rate": 0.4723,
-        "sample": 28.31,
-        "avg_pnl_pct": 34.27,
-        "regime_sample": 26.89
+        "weight": 0.0436,
+        "hit_rate": 0.4634,
+        "raw_hit_rate": 0.4557,
+        "sample": 28.46,
+        "avg_pnl_pct": 33.11,
+        "regime_sample": 27.08
       },
       "adx_di": {
-        "weight": 0.0453,
-        "hit_rate": 0.5167,
-        "raw_hit_rate": 0.5286,
-        "sample": 8.38,
-        "avg_pnl_pct": 38.26,
-        "regime_sample": 6.7
+        "weight": 0.0561,
+        "hit_rate": 0.521,
+        "raw_hit_rate": 0.5362,
+        "sample": 8.27,
+        "avg_pnl_pct": 36.68,
+        "regime_sample": 6.63
       },
       "bollinger": {
-        "weight": 0.2626,
-        "hit_rate": 0.5145,
-        "raw_hit_rate": 0.5231,
-        "sample": 10.15,
-        "avg_pnl_pct": 24.8,
-        "regime_sample": 9.72
+        "weight": 0.2349,
+        "hit_rate": 0.512,
+        "raw_hit_rate": 0.5193,
+        "sample": 9.91,
+        "avg_pnl_pct": 23.95,
+        "regime_sample": 9.5
       },
       "volatility_regime": {
-        "weight": 0.0453,
-        "hit_rate": 0.3983,
-        "raw_hit_rate": 0.3413,
-        "sample": 10.69,
-        "avg_pnl_pct": 13.18,
-        "regime_sample": 10.85
+        "weight": 0.0436,
+        "hit_rate": 0.4214,
+        "raw_hit_rate": 0.3785,
+        "sample": 10.99,
+        "avg_pnl_pct": 12.69,
+        "regime_sample": 11.15
       },
       "price_action": {
-        "weight": 0.0453,
-        "hit_rate": 0.4109,
-        "raw_hit_rate": 0.3777,
-        "sample": 16.08,
-        "avg_pnl_pct": 11.9,
-        "regime_sample": 15.58
+        "weight": 0.0436,
+        "hit_rate": 0.4259,
+        "raw_hit_rate": 0.3983,
+        "sample": 16.14,
+        "avg_pnl_pct": 11.49,
+        "regime_sample": 15.65
       },
       "momentum_roc": {
-        "weight": 0.0453,
-        "hit_rate": 0.5229,
-        "raw_hit_rate": 0.5312,
-        "sample": 16.65,
-        "avg_pnl_pct": 32.49,
-        "regime_sample": 15.31
+        "weight": 0.0436,
+        "hit_rate": 0.5164,
+        "raw_hit_rate": 0.5223,
+        "sample": 16.42,
+        "avg_pnl_pct": 31.31,
+        "regime_sample": 15.13
       },
       "seasonality": {
-        "weight": 0.0453,
-        "hit_rate": 0.395,
-        "raw_hit_rate": 0.3019,
-        "sample": 6.78,
-        "avg_pnl_pct": 12.27,
-        "regime_sample": 6.54
+        "weight": 0.0436,
+        "hit_rate": 0.3991,
+        "raw_hit_rate": 0.3077,
+        "sample": 6.63,
+        "avg_pnl_pct": 11.84,
+        "regime_sample": 6.4
       },
       "oi_pcr": {
-        "weight": 0.0453,
+        "weight": 0.0436,
         "hit_rate": 0.5,
         "raw_hit_rate": null,
         "sample": 0.0,
@@ -348,7 +348,7 @@
         "regime_sample": 0.0
       },
       "max_pain": {
-        "weight": 0.0453,
+        "weight": 0.0436,
         "hit_rate": 0.5,
         "raw_hit_rate": null,
         "sample": 0.0,
@@ -360,15 +360,15 @@
     "llm_models": []
   },
   "performance": {
-    "total_signals": 200,
-    "resolved": 198,
-    "scored": 166,
+    "total_signals": 201,
+    "resolved": 199,
+    "scored": 167,
     "pending": 2,
-    "accuracy_all": 48.8,
-    "accuracy_last_20": 55.0,
+    "accuracy_all": 49.1,
+    "accuracy_last_20": 60.0,
     "accuracy_last_50": 50.0,
     "accuracy_traded_only": 47.62,
-    "current_streak": 0,
+    "current_streak": 1,
     "best_streak": 5,
     "trades_simulated": 126,
     "win_rate_pct": 42.06,
@@ -383,9 +383,9 @@
         "accuracy": 53.23
       },
       "mid_vol": {
-        "n": 86,
-        "hits": 41,
-        "accuracy": 47.67
+        "n": 87,
+        "hits": 42,
+        "accuracy": 48.28
       },
       "high_vol": {
         "n": 18,
@@ -395,9 +395,9 @@
     },
     "by_action": {
       "NO_TRADE": {
-        "n": 40,
-        "hits": 21,
-        "accuracy": 52.5
+        "n": 41,
+        "hits": 22,
+        "accuracy": 53.66
       },
       "CALL": {
         "n": 53,
@@ -1254,14 +1254,14 @@
     ]
   },
   "storage": {
-    "archived_this_run": 0,
-    "total_archived": 200,
+    "archived_this_run": 1,
+    "total_archived": 201,
     "csv": "data/signals.csv",
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-10-22T08:15:00+05:30",
-    "label": "22 Oct, 08:15 AM IST"
+    "at": "2026-10-22T13:37:00+05:30",
+    "label": "22 Oct, 01:37 PM IST"
   },
   "data_quality": {
     "candles": 400,
@@ -1270,6 +1270,7 @@
     "option_chain_available": false,
     "notes": [
       "nse option chain http 404",
+      "resolved 1 prediction(s) and updated the model",
       "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
     ]
   },
