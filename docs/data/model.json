@@ -1,99 +1,99 @@
 {
-  "runs": 97,
-  "resolved": 201,
-  "updated_at": "2026-10-26T09:57:14.103674+00:00",
+  "runs": 98,
+  "resolved": 202,
+  "updated_at": "2026-10-26T17:00:05.737519+00:00",
   "regime": "mid_vol",
   "strategy_stats": {
     "ema_trend": {
-      "weight": 0.1372,
-      "hit_rate": 0.5484,
-      "raw_hit_rate": 0.5598,
-      "sample": 25.49,
-      "avg_pnl_pct": 31.13,
-      "regime_sample": 21.6
+      "weight": 0.0818,
+      "hit_rate": 0.5308,
+      "raw_hit_rate": 0.538,
+      "sample": 25.72,
+      "avg_pnl_pct": 30.09,
+      "regime_sample": 21.95
     },
     "macd_momentum": {
-      "weight": 0.0321,
-      "hit_rate": 0.4669,
-      "raw_hit_rate": 0.4551,
-      "sample": 16.87,
-      "avg_pnl_pct": 29.34,
-      "regime_sample": 16.27
+      "weight": 0.0418,
+      "hit_rate": 0.4777,
+      "raw_hit_rate": 0.4697,
+      "sample": 16.81,
+      "avg_pnl_pct": 26.44,
+      "regime_sample": 16.23
     },
     "rsi_reversion": {
-      "weight": 0.2511,
-      "hit_rate": 0.5507,
-      "raw_hit_rate": 0.5844,
-      "sample": 9.01,
-      "avg_pnl_pct": 20.87,
-      "regime_sample": 7.76
+      "weight": 0.2651,
+      "hit_rate": 0.5411,
+      "raw_hit_rate": 0.5685,
+      "sample": 8.99,
+      "avg_pnl_pct": 20.12,
+      "regime_sample": 7.77
     },
     "donchian_breakout": {
-      "weight": 0.0321,
-      "hit_rate": 0.4999,
-      "raw_hit_rate": 0.4998,
-      "sample": 11.23,
-      "avg_pnl_pct": 36.16,
-      "regime_sample": 9.77
+      "weight": 0.0418,
+      "hit_rate": 0.4938,
+      "raw_hit_rate": 0.4904,
+      "sample": 11.1,
+      "avg_pnl_pct": 34.88,
+      "regime_sample": 9.69
     },
     "supertrend": {
-      "weight": 0.0321,
-      "hit_rate": 0.4375,
-      "raw_hit_rate": 0.4245,
-      "sample": 28.75,
-      "avg_pnl_pct": 30.92,
-      "regime_sample": 27.45
+      "weight": 0.0418,
+      "hit_rate": 0.454,
+      "raw_hit_rate": 0.4444,
+      "sample": 28.89,
+      "avg_pnl_pct": 27.97,
+      "regime_sample": 27.63
     },
     "adx_di": {
-      "weight": 0.1255,
-      "hit_rate": 0.5367,
-      "raw_hit_rate": 0.5634,
-      "sample": 8.26,
-      "avg_pnl_pct": 33.77,
-      "regime_sample": 6.72
+      "weight": 0.0787,
+      "hit_rate": 0.5237,
+      "raw_hit_rate": 0.5407,
+      "sample": 8.35,
+      "avg_pnl_pct": 32.42,
+      "regime_sample": 6.86
     },
     "bollinger": {
-      "weight": 0.1809,
-      "hit_rate": 0.5144,
-      "raw_hit_rate": 0.5235,
-      "sample": 9.41,
-      "avg_pnl_pct": 23.1,
-      "regime_sample": 9.02
+      "weight": 0.1981,
+      "hit_rate": 0.5087,
+      "raw_hit_rate": 0.5142,
+      "sample": 9.29,
+      "avg_pnl_pct": 22.29,
+      "regime_sample": 8.91
     },
     "volatility_regime": {
-      "weight": 0.0321,
-      "hit_rate": 0.4539,
-      "raw_hit_rate": 0.4294,
-      "sample": 11.26,
-      "avg_pnl_pct": 11.78,
-      "regime_sample": 11.41
+      "weight": 0.0418,
+      "hit_rate": 0.4364,
+      "raw_hit_rate": 0.4035,
+      "sample": 11.63,
+      "avg_pnl_pct": 11.35,
+      "regime_sample": 11.77
     },
     "price_action": {
-      "weight": 0.0321,
-      "hit_rate": 0.4221,
-      "raw_hit_rate": 0.3918,
-      "sample": 15.44,
-      "avg_pnl_pct": 10.71,
-      "regime_sample": 14.98
+      "weight": 0.0418,
+      "hit_rate": 0.4254,
+      "raw_hit_rate": 0.3957,
+      "sample": 15.07,
+      "avg_pnl_pct": 8.38,
+      "regime_sample": 14.63
     },
     "momentum_roc": {
-      "weight": 0.0483,
-      "hit_rate": 0.5276,
-      "raw_hit_rate": 0.5379,
-      "sample": 15.97,
-      "avg_pnl_pct": 29.09,
-      "regime_sample": 14.75
+      "weight": 0.0418,
+      "hit_rate": 0.5039,
+      "raw_hit_rate": 0.5053,
+      "sample": 16.49,
+      "avg_pnl_pct": 28.05,
+      "regime_sample": 15.31
     },
     "seasonality": {
-      "weight": 0.0321,
-      "hit_rate": 0.4186,
-      "raw_hit_rate": 0.3445,
-      "sample": 6.58,
-      "avg_pnl_pct": 11.04,
-      "regime_sample": 6.37
+      "weight": 0.0418,
+      "hit_rate": 0.4248,
+      "raw_hit_rate": 0.3553,
+      "sample": 6.49,
+      "avg_pnl_pct": 8.71,
+      "regime_sample": 6.29
     },
     "oi_pcr": {
-      "weight": 0.0321,
+      "weight": 0.0418,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -101,7 +101,7 @@
       "regime_sample": 0.0
     },
     "max_pain": {
-      "weight": 0.0321,
+      "weight": 0.0418,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -111,63 +111,63 @@
   },
   "calibration": {
     "-1": {
-      "n": 4.9483816191932615,
-      "up": 0.5872030069851041
+      "n": 4.799930170617463,
+      "up": 0.569586916775551
     },
     "-2": {
-      "n": 1.9411663856830896,
-      "up": 0.8034255272116835
+      "n": 2.882931394112597,
+      "up": 1.779322761395333
     },
     "-3": {
-      "n": 5.916017763466043,
-      "up": 2.5718353481309504
+      "n": 5.738537230562062,
+      "up": 2.494680287687022
     },
     "-4": {
-      "n": 2.338836611244399,
-      "up": 1.5263145613587723
+      "n": 2.268671512907067,
+      "up": 1.480525124518009
     },
     "-5": {
-      "n": 4.724738492350617,
-      "up": 2.077570714706865
+      "n": 4.582996337580098,
+      "up": 2.0152435932656587
     },
     "-6": {
-      "n": 2.2700467528367705,
-      "up": 1.856637403823205
+      "n": 2.2019453502516675,
+      "up": 1.8009382817085087
     },
     "0": {
-      "n": 3.094860142436437,
-      "up": 0.7718311573982193
+      "n": 3.002014338163344,
+      "up": 0.7486762226762727
     },
     "1": {
-      "n": 1.6698133554312902,
-      "up": 1.2366452788491626
+      "n": 1.6197189547683515,
+      "up": 1.1995459204836878
     },
     "2": {
-      "n": 1.4624115256679953,
-      "up": 0.8937228927608936
+      "n": 1.4185391798979554,
+      "up": 0.8669112059780667
     },
     "3": {
-      "n": 2.9512686598476856,
-      "up": 0.4571989548368705
+      "n": 2.862730600052255,
+      "up": 0.4434829861917644
     },
     "4": {
-      "n": 0.5106619785197879,
-      "up": 0.28610240162859196
+      "n": 0.49534211916419424,
+      "up": 0.2775193295797342
     },
     "5": {
-      "n": 1.139992024706642,
-      "up": 0.41123014303622313
+      "n": 1.1057922639654427,
+      "up": 0.39889323874513644
     },
     "6": {
-      "n": 0.12159176932157731,
+      "n": 0.11794401624192999,
       "up": 0.0
     },
     "7": {
-      "n": 0.04339989006580376,
+      "n": 0.042097893363829644,
       "up": 0.0
     },
     "8": {
-      "n": 0.006369537344187395,
+      "n": 0.0061784512238617735,
       "up": 0.0
     }
   }
