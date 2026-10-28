@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-28T15:57:42.897523+05:30",
-  "generated_at_ist": "28 Oct 2026, 03:57 PM IST",
+  "generated_at": "2026-10-28T22:19:58.678004+05:30",
+  "generated_at_ist": "28 Oct 2026, 10:19 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-10-28",
   "spot": 22698.85,
@@ -246,7 +246,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 102,
+    "runs": 103,
     "resolved": 203,
     "resolved_this_run": 0,
     "regime": "mid_vol",
@@ -1260,8 +1260,8 @@
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-10-28T16:15:00+05:30",
-    "label": "28 Oct, 04:15 PM IST"
+    "at": "2026-10-29T08:15:00+05:30",
+    "label": "29 Oct, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
