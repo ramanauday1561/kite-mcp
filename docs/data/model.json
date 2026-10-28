@@ -1,99 +1,99 @@
 {
-  "runs": 100,
-  "resolved": 202,
-  "updated_at": "2026-10-27T09:42:41.155033+00:00",
+  "runs": 101,
+  "resolved": 203,
+  "updated_at": "2026-10-27T16:01:30.649968+00:00",
   "regime": "mid_vol",
   "strategy_stats": {
     "ema_trend": {
-      "weight": 0.0818,
-      "hit_rate": 0.5308,
+      "weight": 0.0824,
+      "hit_rate": 0.5306,
       "raw_hit_rate": 0.538,
-      "sample": 25.72,
+      "sample": 24.95,
       "avg_pnl_pct": 30.09,
-      "regime_sample": 21.95
+      "regime_sample": 21.29
     },
     "macd_momentum": {
-      "weight": 0.0418,
-      "hit_rate": 0.4777,
+      "weight": 0.042,
+      "hit_rate": 0.4779,
       "raw_hit_rate": 0.4697,
-      "sample": 16.81,
+      "sample": 16.31,
       "avg_pnl_pct": 26.44,
-      "regime_sample": 16.23
+      "regime_sample": 15.75
     },
     "rsi_reversion": {
-      "weight": 0.2651,
-      "hit_rate": 0.5411,
+      "weight": 0.2641,
+      "hit_rate": 0.5406,
       "raw_hit_rate": 0.5685,
-      "sample": 8.99,
+      "sample": 8.72,
       "avg_pnl_pct": 20.12,
-      "regime_sample": 7.77
+      "regime_sample": 7.54
     },
     "donchian_breakout": {
-      "weight": 0.0418,
-      "hit_rate": 0.4938,
+      "weight": 0.042,
+      "hit_rate": 0.4939,
       "raw_hit_rate": 0.4904,
-      "sample": 11.1,
+      "sample": 10.77,
       "avg_pnl_pct": 34.88,
-      "regime_sample": 9.69
+      "regime_sample": 9.4
     },
     "supertrend": {
-      "weight": 0.0418,
-      "hit_rate": 0.454,
+      "weight": 0.042,
+      "hit_rate": 0.4542,
       "raw_hit_rate": 0.4444,
-      "sample": 28.89,
+      "sample": 28.02,
       "avg_pnl_pct": 27.97,
-      "regime_sample": 27.63
+      "regime_sample": 26.8
     },
     "adx_di": {
-      "weight": 0.0787,
-      "hit_rate": 0.5237,
+      "weight": 0.0788,
+      "hit_rate": 0.5234,
       "raw_hit_rate": 0.5407,
-      "sample": 8.35,
+      "sample": 8.1,
       "avg_pnl_pct": 32.42,
-      "regime_sample": 6.86
+      "regime_sample": 6.65
     },
     "bollinger": {
-      "weight": 0.1981,
-      "hit_rate": 0.5087,
+      "weight": 0.1968,
+      "hit_rate": 0.5085,
       "raw_hit_rate": 0.5142,
-      "sample": 9.29,
+      "sample": 9.01,
       "avg_pnl_pct": 22.29,
-      "regime_sample": 8.91
+      "regime_sample": 8.65
     },
     "volatility_regime": {
-      "weight": 0.0418,
-      "hit_rate": 0.4364,
+      "weight": 0.042,
+      "hit_rate": 0.437,
       "raw_hit_rate": 0.4035,
-      "sample": 11.63,
+      "sample": 11.28,
       "avg_pnl_pct": 11.35,
-      "regime_sample": 11.77
+      "regime_sample": 11.41
     },
     "price_action": {
-      "weight": 0.0418,
-      "hit_rate": 0.4254,
+      "weight": 0.042,
+      "hit_rate": 0.4261,
       "raw_hit_rate": 0.3957,
-      "sample": 15.07,
+      "sample": 14.62,
       "avg_pnl_pct": 8.38,
-      "regime_sample": 14.63
+      "regime_sample": 14.19
     },
     "momentum_roc": {
-      "weight": 0.0418,
-      "hit_rate": 0.5039,
+      "weight": 0.042,
+      "hit_rate": 0.5038,
       "raw_hit_rate": 0.5053,
-      "sample": 16.49,
+      "sample": 16.0,
       "avg_pnl_pct": 28.05,
-      "regime_sample": 15.31
+      "regime_sample": 14.85
     },
     "seasonality": {
-      "weight": 0.0418,
-      "hit_rate": 0.4248,
+      "weight": 0.042,
+      "hit_rate": 0.4259,
       "raw_hit_rate": 0.3553,
-      "sample": 6.49,
+      "sample": 6.3,
       "avg_pnl_pct": 8.71,
-      "regime_sample": 6.29
+      "regime_sample": 6.1
     },
     "oi_pcr": {
-      "weight": 0.0418,
+      "weight": 0.042,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -101,7 +101,7 @@
       "regime_sample": 0.0
     },
     "max_pain": {
-      "weight": 0.0418,
+      "weight": 0.042,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
