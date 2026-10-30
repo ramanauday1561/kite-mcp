@@ -1,99 +1,99 @@
 {
-  "runs": 106,
-  "resolved": 204,
-  "updated_at": "2026-10-29T10:47:54.404262+00:00",
+  "runs": 107,
+  "resolved": 205,
+  "updated_at": "2026-10-29T17:05:17.285496+00:00",
   "regime": "mid_vol",
   "strategy_stats": {
     "ema_trend": {
-      "weight": 0.1488,
-      "hit_rate": 0.5455,
-      "raw_hit_rate": 0.5563,
-      "sample": 25.2,
-      "avg_pnl_pct": 29.06,
-      "regime_sample": 21.65
+      "weight": 0.0794,
+      "hit_rate": 0.5279,
+      "raw_hit_rate": 0.5345,
+      "sample": 25.45,
+      "avg_pnl_pct": 28.07,
+      "regime_sample": 22.0
     },
     "macd_momentum": {
-      "weight": 0.0369,
-      "hit_rate": 0.4687,
-      "raw_hit_rate": 0.4572,
-      "sample": 16.26,
-      "avg_pnl_pct": 25.53,
-      "regime_sample": 15.71
+      "weight": 0.046,
+      "hit_rate": 0.4786,
+      "raw_hit_rate": 0.4707,
+      "sample": 16.17,
+      "avg_pnl_pct": 22.31,
+      "regime_sample": 15.64
     },
     "rsi_reversion": {
-      "weight": 0.248,
-      "hit_rate": 0.5433,
-      "raw_hit_rate": 0.5737,
-      "sample": 8.56,
-      "avg_pnl_pct": 19.37,
-      "regime_sample": 7.42
+      "weight": 0.2616,
+      "hit_rate": 0.5366,
+      "raw_hit_rate": 0.5625,
+      "sample": 8.47,
+      "avg_pnl_pct": 18.66,
+      "regime_sample": 7.36
     },
     "donchian_breakout": {
-      "weight": 0.0369,
-      "hit_rate": 0.4913,
+      "weight": 0.046,
+      "hit_rate": 0.4914,
       "raw_hit_rate": 0.4864,
-      "sample": 10.53,
+      "sample": 10.22,
       "avg_pnl_pct": 33.61,
-      "regime_sample": 9.2
+      "regime_sample": 8.93
     },
     "supertrend": {
-      "weight": 0.0369,
-      "hit_rate": 0.4412,
-      "raw_hit_rate": 0.4286,
-      "sample": 28.18,
-      "avg_pnl_pct": 27.01,
-      "regime_sample": 26.99
+      "weight": 0.046,
+      "hit_rate": 0.4578,
+      "raw_hit_rate": 0.4488,
+      "sample": 28.33,
+      "avg_pnl_pct": 23.74,
+      "regime_sample": 27.18
     },
     "adx_di": {
-      "weight": 0.1229,
-      "hit_rate": 0.5322,
-      "raw_hit_rate": 0.556,
-      "sample": 8.13,
-      "avg_pnl_pct": 31.1,
-      "regime_sample": 6.72
+      "weight": 0.0628,
+      "hit_rate": 0.5195,
+      "raw_hit_rate": 0.5337,
+      "sample": 8.21,
+      "avg_pnl_pct": 29.85,
+      "regime_sample": 6.85
     },
     "bollinger": {
-      "weight": 0.1478,
-      "hit_rate": 0.5043,
+      "weight": 0.182,
+      "hit_rate": 0.5042,
       "raw_hit_rate": 0.5072,
-      "sample": 8.87,
+      "sample": 8.6,
       "avg_pnl_pct": 21.48,
-      "regime_sample": 8.51
+      "regime_sample": 8.25
     },
     "volatility_regime": {
-      "weight": 0.0369,
-      "hit_rate": 0.4334,
-      "raw_hit_rate": 0.3974,
-      "sample": 11.11,
-      "avg_pnl_pct": 10.93,
-      "regime_sample": 11.24
+      "weight": 0.046,
+      "hit_rate": 0.431,
+      "raw_hit_rate": 0.393,
+      "sample": 10.9,
+      "avg_pnl_pct": 10.53,
+      "regime_sample": 11.02
     },
     "price_action": {
-      "weight": 0.0369,
-      "hit_rate": 0.4336,
-      "raw_hit_rate": 0.4059,
-      "sample": 14.42,
-      "avg_pnl_pct": 8.09,
-      "regime_sample": 14.01
+      "weight": 0.046,
+      "hit_rate": 0.4317,
+      "raw_hit_rate": 0.4027,
+      "sample": 14.1,
+      "avg_pnl_pct": 7.8,
+      "regime_sample": 13.7
     },
     "momentum_roc": {
-      "weight": 0.0369,
-      "hit_rate": 0.5156,
-      "raw_hit_rate": 0.5215,
-      "sample": 16.04,
-      "avg_pnl_pct": 27.03,
-      "regime_sample": 14.93
+      "weight": 0.046,
+      "hit_rate": 0.5094,
+      "raw_hit_rate": 0.513,
+      "sample": 15.82,
+      "avg_pnl_pct": 26.05,
+      "regime_sample": 14.74
     },
     "seasonality": {
-      "weight": 0.0369,
-      "hit_rate": 0.4143,
-      "raw_hit_rate": 0.335,
-      "sample": 6.48,
-      "avg_pnl_pct": 8.4,
-      "regime_sample": 6.28
+      "weight": 0.046,
+      "hit_rate": 0.4103,
+      "raw_hit_rate": 0.3268,
+      "sample": 6.44,
+      "avg_pnl_pct": 8.11,
+      "regime_sample": 6.25
     },
     "oi_pcr": {
-      "weight": 0.0369,
+      "weight": 0.046,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -101,7 +101,7 @@
       "regime_sample": 0.0
     },
     "max_pain": {
-      "weight": 0.0369,
+      "weight": 0.046,
       "hit_rate": 0.5,
       "raw_hit_rate": null,
       "sample": 0.0,
@@ -111,63 +111,63 @@
   },
   "calibration": {
     "-1": {
-      "n": 5.655932265498939,
-      "up": 0.5524993092722844
+      "n": 6.4862542975339705,
+      "up": 1.5359243299941159
     },
     "-2": {
-      "n": 2.796443452289219,
-      "up": 1.725943078553473
+      "n": 2.7125501487205423,
+      "up": 1.674164786196869
     },
     "-3": {
-      "n": 5.5663811136452,
-      "up": 2.4198398790564113
+      "n": 5.399389680235844,
+      "up": 2.347244682684719
     },
     "-4": {
-      "n": 2.200611367519855,
-      "up": 1.4361093707824688
+      "n": 2.134593026494259,
+      "up": 1.3930260896589948
     },
     "-5": {
-      "n": 4.445506447452694,
-      "up": 1.954786285467689
+      "n": 4.312141254029114,
+      "up": 1.8961426969036583
     },
     "-6": {
-      "n": 2.1358869897441175,
-      "up": 1.7469101332572534
+      "n": 2.0718103800517937,
+      "up": 1.6945028292595357
     },
     "0": {
-      "n": 2.9119539080184436,
-      "up": 0.7262159359959844
+      "n": 2.82459529077789,
+      "up": 0.7044294579161049
     },
     "1": {
-      "n": 1.5711273861253008,
-      "up": 1.1635595428691772
+      "n": 1.5239935645415417,
+      "up": 1.128652756583102
     },
     "2": {
-      "n": 1.3759830045010166,
-      "up": 0.8409038697987247
+      "n": 1.334703514365986,
+      "up": 0.8156767537047629
     },
     "3": {
-      "n": 2.7768486820506872,
-      "up": 0.4301784966060115
+      "n": 2.6935432215891666,
+      "up": 0.41727314170783114
     },
     "4": {
-      "n": 0.4804818555892684,
-      "up": 0.26919374969234217
+      "n": 0.46606739992159035,
+      "up": 0.2611179372015719
     },
     "5": {
-      "n": 1.0726184960464795,
-      "up": 0.38692644158278233
+      "n": 1.040439941165085,
+      "up": 0.3753186483352989
     },
     "6": {
-      "n": 0.11440569575467209,
+      "n": 0.11097352488203192,
       "up": 0.0
     },
     "7": {
-      "n": 0.040834956562914755,
+      "n": 0.03960990786602731,
       "up": 0.0
     },
     "8": {
-      "n": 0.00599309768714592,
+      "n": 0.005813304756531542,
       "up": 0.0
     }
   }
