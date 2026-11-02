@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-02T15:29:53.196291+05:30",
-  "generated_at_ist": "02 Nov 2026, 03:29 PM IST",
+  "generated_at": "2026-11-02T17:40:20.481214+05:30",
+  "generated_at_ist": "02 Nov 2026, 05:40 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-02",
   "spot": 23440.8,
@@ -9,13 +9,13 @@
   "recommendation": {
     "action": "CALL",
     "bias": "CALL",
-    "confidence": 0.5521,
-    "probability_up": 0.5521,
+    "confidence": 0.5516,
+    "probability_up": 0.5516,
     "reason": "Ensemble score +0.28 calibrates to a 55% chance of an up move \u2014 low conviction.",
     "calibration_basis": "3 resolved signals in this score band (observed 27% up)"
   },
   "ensemble": {
-    "score": 0.2843,
+    "score": 0.2831,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 8,
@@ -30,7 +30,7 @@
       "supertrend": 0.0462,
       "adx_di": 0.0037,
       "bollinger": -0.094,
-      "volatility_regime": 0.0007,
+      "volatility_regime": -0.0004,
       "price_action": 0.041,
       "momentum_roc": 0.0376,
       "seasonality": -0.0047
@@ -44,33 +44,33 @@
     "atm_strike": 23450.0,
     "expiry": "2026-11-03",
     "days_to_expiry": 1,
-    "iv_used_pct": 15.45,
-    "theoretical_premium": 51.39,
-    "delta": 0.3875,
-    "gamma": 0.00202,
-    "theta_per_day": -37.92,
+    "iv_used_pct": 15.5,
+    "theoretical_premium": 51.6,
+    "delta": 0.3879,
+    "gamma": 0.002014,
+    "theta_per_day": -38.04,
     "vega": 4.7,
-    "atm_premium": 73.17,
-    "stop_loss": 33.4,
-    "target": 84.79,
+    "atm_premium": 73.39,
+    "stop_loss": 33.54,
+    "target": 85.14,
     "lot_size": 75,
     "suggested_lots": 2,
-    "capital_at_risk": 2698.5,
-    "premium_outlay": 7708.5,
-    "capital_deployed_pct": 3.854,
-    "breakeven": 23551.39,
+    "capital_at_risk": 2709.0,
+    "premium_outlay": 7740.0,
+    "capital_deployed_pct": 3.87,
+    "breakeven": 23551.6,
     "notes": [
       "IV is rich (percentile 71) \u2014 a 23500/23700 debit spread cuts the vega bleed versus a naked long.",
-      "Theta burns about Rs 37.9 per day per unit (Rs 2,844 per lot) \u2014 this is a 1-day view, not a hold.",
+      "Theta burns about Rs 38.0 per day per unit (Rs 2,853 per lot) \u2014 this is a 1-day view, not a hold.",
       "Expiry is within a day: gamma is extreme and premium decays fast. Size down or roll to the next series."
     ],
     "short_leg": {
       "strike": 23700.0,
-      "premium": 8.01,
-      "delta": 0.0912
+      "premium": 8.1,
+      "delta": 0.0918
     },
-    "net_debit": 43.38,
-    "max_profit": 156.62
+    "net_debit": 43.5,
+    "max_profit": 156.5
   },
   "expiry": {
     "date": "2026-11-03",
@@ -201,12 +201,12 @@
     {
       "name": "volatility_regime",
       "label": "India VIX Regime",
-      "score": 0.015577488540896814,
-      "confidence": 0.2655774885408968,
-      "rationale": "India VIX 15.45: VIX rose 1.0%, at the 71th percentile.",
+      "score": -0.00893235662956042,
+      "confidence": 0.25893235662956043,
+      "rationale": "India VIX 15.50: VIX rose 1.3%, at the 71th percentile.",
       "abstained": false,
       "weight": 0.0423,
-      "contribution": 0.0007,
+      "contribution": -0.0004,
       "hit_rate": 0.4516,
       "sample": 11.17
     },
@@ -236,8 +236,8 @@
     }
   ],
   "market_data": {
-    "vix": 15.454999923706055,
-    "vix_change_pct": 1.01,
+    "vix": 15.5,
+    "vix_change_pct": 1.31,
     "vix_percentile": 71.42857142857143,
     "atr_pct": 1.26,
     "rsi": 61.0,
@@ -247,9 +247,9 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 110,
+    "runs": 111,
     "resolved": 206,
-    "resolved_this_run": 1,
+    "resolved_this_run": 0,
     "regime": "mid_vol",
     "strategy_stats": {
       "ema_trend": {
@@ -1255,14 +1255,14 @@
     ]
   },
   "storage": {
-    "archived_this_run": 1,
+    "archived_this_run": 0,
     "total_archived": 208,
     "csv": "data/signals.csv",
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-02T16:15:00+05:30",
-    "label": "02 Nov, 04:15 PM IST"
+    "at": "2026-11-03T08:15:00+05:30",
+    "label": "03 Nov, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
@@ -1271,7 +1271,6 @@
     "option_chain_available": false,
     "notes": [
       "nse option chain http 404",
-      "resolved 1 prediction(s) and updated the model",
       "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
     ]
   },
