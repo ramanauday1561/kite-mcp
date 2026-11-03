@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-03T15:36:25.043628+05:30",
-  "generated_at_ist": "03 Nov 2026, 03:36 PM IST",
+  "generated_at": "2026-11-03T17:15:42.212259+05:30",
+  "generated_at_ist": "03 Nov 2026, 05:15 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-03",
   "spot": 23810.85,
@@ -9,13 +9,13 @@
   "recommendation": {
     "action": "CALL",
     "bias": "CALL",
-    "confidence": 0.6139,
-    "probability_up": 0.6139,
+    "confidence": 0.6135,
+    "probability_up": 0.6135,
     "reason": "Ensemble score +0.35 calibrates to a 61% chance of an up move \u2014 moderate conviction.",
     "calibration_basis": "4 resolved signals in this score band (observed 43% up)"
   },
   "ensemble": {
-    "score": 0.3494,
+    "score": 0.3482,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 9,
@@ -30,7 +30,7 @@
       "supertrend": 0.036,
       "adx_di": 0.0077,
       "bollinger": -0.1017,
-      "volatility_regime": 0.0006,
+      "volatility_regime": -0.0007,
       "price_action": 0.036,
       "momentum_roc": 0.0961,
       "seasonality": 0.0128
@@ -44,32 +44,32 @@
     "atm_strike": 23800.0,
     "expiry": "2026-11-10",
     "days_to_expiry": 7,
-    "iv_used_pct": 15.66,
-    "theoretical_premium": 136.72,
-    "delta": 0.3834,
-    "gamma": 0.000739,
-    "theta_per_day": -15.68,
+    "iv_used_pct": 15.72,
+    "theoretical_premium": 137.54,
+    "delta": 0.3839,
+    "gamma": 0.000737,
+    "theta_per_day": -15.75,
     "vega": 12.59,
-    "atm_premium": 226.68,
-    "stop_loss": 88.87,
-    "target": 225.59,
+    "atm_premium": 227.53,
+    "stop_loss": 89.4,
+    "target": 226.94,
     "lot_size": 75,
     "suggested_lots": 0,
     "capital_at_risk": 0.0,
     "premium_outlay": 0.0,
     "capital_deployed_pct": 0.0,
-    "breakeven": 24136.72,
+    "breakeven": 24137.54,
     "notes": [
       "IV is rich (percentile 73) \u2014 a 24000/24200 debit spread cuts the vega bleed versus a naked long.",
-      "Theta burns about Rs 15.7 per day per unit (Rs 1,176 per lot) \u2014 this is a 7-day view, not a hold."
+      "Theta burns about Rs 15.8 per day per unit (Rs 1,181 per lot) \u2014 this is a 7-day view, not a hold."
     ],
     "short_leg": {
       "strike": 24200.0,
-      "premium": 75.57,
-      "delta": 0.2485
+      "premium": 76.25,
+      "delta": 0.2494
     },
-    "net_debit": 61.15,
-    "max_profit": 138.85
+    "net_debit": 61.29,
+    "max_profit": 138.71
   },
   "expiry": {
     "date": "2026-11-10",
@@ -200,12 +200,12 @@
     {
       "name": "volatility_regime",
       "label": "India VIX Regime",
-      "score": 0.015322437081285709,
-      "confidence": 0.2653224370812857,
-      "rationale": "India VIX 15.66: VIX rose 1.0%, at the 73th percentile.",
+      "score": -0.019623573877478165,
+      "confidence": 0.26962357387747815,
+      "rationale": "India VIX 15.72: VIX rose 1.4%, at the 73th percentile.",
       "abstained": false,
       "weight": 0.0335,
-      "contribution": 0.0006,
+      "contribution": -0.0007,
       "hit_rate": 0.4521,
       "sample": 10.83
     },
@@ -235,9 +235,9 @@
     }
   ],
   "market_data": {
-    "vix": 15.657500267028809,
-    "vix_change_pct": 1.02,
-    "vix_percentile": 72.61904761904762,
+    "vix": 15.72249984741211,
+    "vix_change_pct": 1.44,
+    "vix_percentile": 73.01587301587301,
     "atr_pct": 1.26,
     "rsi": 66.6,
     "adx": 30.7,
@@ -246,7 +246,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 113,
+    "runs": 114,
     "resolved": 207,
     "resolved_this_run": 0,
     "regime": "mid_vol",
@@ -1260,8 +1260,8 @@
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-03T16:15:00+05:30",
-    "label": "03 Nov, 04:15 PM IST"
+    "at": "2026-11-04T08:15:00+05:30",
+    "label": "04 Nov, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
