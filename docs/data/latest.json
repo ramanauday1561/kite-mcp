@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T15:53:59.522858+05:30",
-  "generated_at_ist": "09 Nov 2026, 03:53 PM IST",
+  "generated_at": "2026-11-09T18:11:50.230760+05:30",
+  "generated_at_ist": "09 Nov 2026, 06:11 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-09",
   "spot": 25044.65,
@@ -247,9 +247,9 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 125,
+    "runs": 126,
     "resolved": 211,
-    "resolved_this_run": 1,
+    "resolved_this_run": 0,
     "regime": "mid_vol",
     "strategy_stats": {
       "ema_trend": {
@@ -1255,14 +1255,14 @@
     ]
   },
   "storage": {
-    "archived_this_run": 1,
+    "archived_this_run": 0,
     "total_archived": 213,
     "csv": "data/signals.csv",
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-09T16:15:00+05:30",
-    "label": "09 Nov, 04:15 PM IST"
+    "at": "2026-11-10T08:15:00+05:30",
+    "label": "10 Nov, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
@@ -1271,7 +1271,6 @@
     "option_chain_available": false,
     "notes": [
       "nse option chain http 404",
-      "resolved 1 prediction(s) and updated the model",
       "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
     ]
   },
