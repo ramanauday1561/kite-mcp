@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-10T02:36:05.586989+05:30",
-  "generated_at_ist": "10 Nov 2026, 02:36 AM IST",
+  "generated_at": "2026-11-10T15:57:57.060731+05:30",
+  "generated_at_ist": "10 Nov 2026, 03:57 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-09",
   "spot": 25044.65,
@@ -9,13 +9,13 @@
   "recommendation": {
     "action": "CALL",
     "bias": "CALL",
-    "confidence": 0.7681,
-    "probability_up": 0.7681,
-    "reason": "Ensemble score +0.48 calibrates to a 77% chance of an up move \u2014 high conviction.",
+    "confidence": 0.7617,
+    "probability_up": 0.7617,
+    "reason": "Ensemble score +0.47 calibrates to a 76% chance of an up move \u2014 high conviction.",
     "calibration_basis": "3 resolved signals in this score band (observed 73% up)"
   },
   "ensemble": {
-    "score": 0.4849,
+    "score": 0.4662,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 7,
@@ -26,7 +26,7 @@
       "ema_trend": 0.0541,
       "macd_momentum": 0.1472,
       "rsi_reversion": -0.1389,
-      "donchian_breakout": 0.1249,
+      "donchian_breakout": 0.1062,
       "supertrend": 0.0622,
       "adx_di": 0.0371,
       "bollinger": -0.005,
@@ -102,18 +102,6 @@
       "sample": 9.04
     },
     {
-      "name": "donchian_breakout",
-      "label": "20-Day Range Breakout",
-      "score": 0.610431291595345,
-      "confidence": 0.8104312915953451,
-      "rationale": "Price broke above the 20-day high (25,030).",
-      "abstained": false,
-      "weight": 0.199,
-      "contribution": 0.1249,
-      "hit_rate": 0.6067,
-      "sample": 12.41
-    },
-    {
       "name": "momentum_roc",
       "label": "Rate of Change",
       "score": 0.7143269192415238,
@@ -124,6 +112,18 @@
       "contribution": 0.1087,
       "hit_rate": 0.5931,
       "sample": 16.67
+    },
+    {
+      "name": "donchian_breakout",
+      "label": "20-Day Range Breakout",
+      "score": 0.5188665978560433,
+      "confidence": 0.7188665978560433,
+      "rationale": "Price broke above the 20-day high (25,030) on 1.1x average volume.",
+      "abstained": false,
+      "weight": 0.199,
+      "contribution": 0.1062,
+      "hit_rate": 0.6067,
+      "sample": 12.41
     },
     {
       "name": "price_action",
@@ -246,9 +246,9 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 127,
+    "runs": 128,
     "resolved": 212,
-    "resolved_this_run": 1,
+    "resolved_this_run": 0,
     "regime": "mid_vol",
     "strategy_stats": {
       "ema_trend": {
@@ -1254,14 +1254,14 @@
     ]
   },
   "storage": {
-    "archived_this_run": 1,
+    "archived_this_run": 0,
     "total_archived": 213,
     "csv": "data/signals.csv",
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-10T08:15:00+05:30",
-    "label": "10 Nov, 08:15 AM IST"
+    "at": "2026-11-10T16:15:00+05:30",
+    "label": "10 Nov, 04:15 PM IST"
   },
   "data_quality": {
     "candles": 400,
@@ -1270,7 +1270,6 @@
     "option_chain_available": false,
     "notes": [
       "nse option chain http 404",
-      "resolved 1 prediction(s) and updated the model",
       "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
     ]
   },
