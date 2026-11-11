@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-11-11T15:22:19.329697+05:30",
-  "generated_at_ist": "11 Nov 2026, 03:22 PM IST",
+  "generated_at": "2026-11-11T17:15:35.347832+05:30",
+  "generated_at_ist": "11 Nov 2026, 05:15 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-11",
-  "spot": 25130.0,
-  "change_pct": 0.34,
+  "spot": 25255.05,
+  "change_pct": 0.84,
   "regime": "mid_vol",
   "recommendation": {
     "action": "CALL",
     "bias": "CALL",
-    "confidence": 0.7227,
-    "probability_up": 0.7227,
-    "reason": "Ensemble score +0.38 calibrates to a 72% chance of an up move \u2014 high conviction.",
-    "calibration_basis": "5 resolved signals in this score band (observed 71% up)"
+    "confidence": 0.7598,
+    "probability_up": 0.7598,
+    "reason": "Ensemble score +0.46 calibrates to a 76% chance of an up move \u2014 high conviction.",
+    "calibration_basis": "3 resolved signals in this score band (observed 73% up)"
   },
   "ensemble": {
-    "score": 0.3842,
+    "score": 0.4608,
     "participation": 0.846,
     "active": 11,
-    "bullish_votes": 6,
+    "bullish_votes": 7,
     "bearish_votes": 4,
-    "neutral_votes": 1,
-    "agreement": 0.545,
+    "neutral_votes": 0,
+    "agreement": 0.636,
     "contributions": {
       "ema_trend": 0.0541,
       "macd_momentum": 0.1472,
-      "rsi_reversion": -0.1427,
-      "donchian_breakout": 0.1295,
+      "rsi_reversion": -0.1473,
+      "donchian_breakout": 0.1478,
       "supertrend": 0.0622,
       "adx_di": 0.0417,
       "bollinger": -0.005,
-      "volatility_regime": -0.0007,
-      "price_action": -0.0141,
-      "momentum_roc": 0.1135,
+      "volatility_regime": -0.0009,
+      "price_action": 0.051,
+      "momentum_roc": 0.1115,
       "seasonality": -0.0015
     }
   },
@@ -40,36 +40,36 @@
     "structure": "debit_spread",
     "option_type": "CE",
     "direction": "CALL",
-    "strike": 25300.0,
-    "atm_strike": 25150.0,
+    "strike": 25450.0,
+    "atm_strike": 25250.0,
     "expiry": "2026-11-17",
     "days_to_expiry": 6,
-    "iv_used_pct": 17.52,
-    "theoretical_premium": 161.48,
-    "delta": 0.4046,
-    "gamma": 0.000687,
-    "theta_per_day": -20.01,
-    "vega": 12.48,
-    "atm_premium": 228.58,
-    "stop_loss": 104.96,
-    "target": 266.44,
+    "iv_used_pct": 17.56,
+    "theoretical_premium": 153.41,
+    "delta": 0.3886,
+    "gamma": 0.000674,
+    "theta_per_day": -19.88,
+    "vega": 12.41,
+    "atm_premium": 242.99,
+    "stop_loss": 99.72,
+    "target": 253.13,
     "lot_size": 75,
     "suggested_lots": 0,
     "capital_at_risk": 0.0,
     "premium_outlay": 0.0,
     "capital_deployed_pct": 0.0,
-    "breakeven": 25461.48,
+    "breakeven": 25603.41,
     "notes": [
-      "IV is rich (percentile 81) \u2014 a 25300/25500 debit spread cuts the vega bleed versus a naked long.",
-      "Theta burns about Rs 20.0 per day per unit (Rs 1,501 per lot) \u2014 this is a 6-day view, not a hold."
+      "IV is rich (percentile 81) \u2014 a 25450/25650 debit spread cuts the vega bleed versus a naked long.",
+      "Theta burns about Rs 19.9 per day per unit (Rs 1,491 per lot) \u2014 this is a 6-day view, not a hold."
     ],
     "short_leg": {
-      "strike": 25500.0,
-      "premium": 95.35,
-      "delta": 0.2769
+      "strike": 25650.0,
+      "premium": 90.15,
+      "delta": 0.2641
     },
-    "net_debit": 66.13,
-    "max_profit": 133.87
+    "net_debit": 63.26,
+    "max_profit": 136.74
   },
   "expiry": {
     "date": "2026-11-17",
@@ -78,11 +78,35 @@
   },
   "votes": [
     {
+      "name": "donchian_breakout",
+      "label": "20-Day Range Breakout",
+      "score": 0.7223350296363986,
+      "confidence": 0.9223350296363986,
+      "rationale": "Price broke above the 20-day high (25,084).",
+      "abstained": false,
+      "weight": 0.199,
+      "contribution": 0.1478,
+      "hit_rate": 0.6067,
+      "sample": 12.41
+    },
+    {
+      "name": "rsi_reversion",
+      "label": "RSI Mean Reversion",
+      "score": -0.9267293179245957,
+      "confidence": 1.0,
+      "rationale": "RSI(14) overbought at 80 \u2014 fade the move.",
+      "abstained": false,
+      "weight": 0.1546,
+      "contribution": -0.1473,
+      "hit_rate": 0.575,
+      "sample": 9.04
+    },
+    {
       "name": "macd_momentum",
       "label": "MACD Momentum",
       "score": 1.0,
       "confidence": 1.0,
-      "rationale": "MACD +485.2 vs signal +206.0; histogram +279.2 and expanding \u2014 momentum is building to the upside.",
+      "rationale": "MACD +495.2 vs signal +208.0; histogram +287.1 and expanding \u2014 momentum is building to the upside.",
       "abstained": false,
       "weight": 0.1431,
       "contribution": 0.1472,
@@ -90,38 +114,14 @@
       "sample": 18.15
     },
     {
-      "name": "rsi_reversion",
-      "label": "RSI Mean Reversion",
-      "score": -0.8980619797420104,
-      "confidence": 1.0,
-      "rationale": "RSI(14) overbought at 79 \u2014 fade the move.",
-      "abstained": false,
-      "weight": 0.1546,
-      "contribution": -0.1427,
-      "hit_rate": 0.575,
-      "sample": 9.04
-    },
-    {
-      "name": "donchian_breakout",
-      "label": "20-Day Range Breakout",
-      "score": 0.632872508991524,
-      "confidence": 0.8328725089915241,
-      "rationale": "Price broke above the 20-day high (25,084).",
-      "abstained": false,
-      "weight": 0.199,
-      "contribution": 0.1295,
-      "hit_rate": 0.6067,
-      "sample": 12.41
-    },
-    {
       "name": "momentum_roc",
       "label": "Rate of Change",
-      "score": 0.7461960979920255,
-      "confidence": 0.9461960979920254,
-      "rationale": "5-day ROC +5.54%, 20-day ROC +12.37%, price z-score +2.0.",
+      "score": 0.7329945209039772,
+      "confidence": 0.9329945209039772,
+      "rationale": "5-day ROC +6.07%, 20-day ROC +12.93%, price z-score +2.1.",
       "abstained": false,
       "weight": 0.148,
-      "contribution": 0.1135,
+      "contribution": 0.1115,
       "hit_rate": 0.5931,
       "sample": 16.67
     },
@@ -130,7 +130,7 @@
       "label": "Supertrend",
       "score": 1.0,
       "confidence": 1.0,
-      "rationale": "Supertrend is bullish with the band at 24,185 (3.8% from spot).",
+      "rationale": "Supertrend is bullish with the band at 24,185 (4.2% from spot).",
       "abstained": false,
       "weight": 0.0605,
       "contribution": 0.0622,
@@ -142,12 +142,24 @@
       "label": "EMA Trend Stack",
       "score": 1.0,
       "confidence": 1.0,
-      "rationale": "Spot 25,130 is above the 21-EMA (23,673); 9/21/50 stack reads bullish, 21-EMA slope +1.99% over 3 sessions.",
+      "rationale": "Spot 25,255 is above the 21-EMA (23,684); 9/21/50 stack reads bullish, 21-EMA slope +2.04% over 3 sessions.",
       "abstained": false,
       "weight": 0.0526,
       "contribution": 0.0541,
       "hit_rate": 0.5415,
       "sample": 23.6
+    },
+    {
+      "name": "price_action",
+      "label": "Candle & Volume Structure",
+      "score": 0.4766622340425532,
+      "confidence": 0.6766622340425532,
+      "rationale": "Last close finished mid-range of the day's range (49%), gap +1.17%, OBV slope positive.",
+      "abstained": false,
+      "weight": 0.1041,
+      "contribution": 0.051,
+      "hit_rate": 0.5376,
+      "sample": 15.21
     },
     {
       "name": "adx_di",
@@ -160,18 +172,6 @@
       "contribution": 0.0417,
       "hit_rate": 0.5411,
       "sample": 7.77
-    },
-    {
-      "name": "price_action",
-      "label": "Candle & Volume Structure",
-      "score": -0.13148746200607908,
-      "confidence": 0.3314874620060791,
-      "rationale": "Last close finished near the low of the day's range (11%), gap +1.17%, OBV slope positive.",
-      "abstained": false,
-      "weight": 0.1041,
-      "contribution": -0.0141,
-      "hit_rate": 0.5376,
-      "sample": 15.21
     },
     {
       "name": "bollinger",
@@ -200,12 +200,12 @@
     {
       "name": "volatility_regime",
       "label": "India VIX Regime",
-      "score": -0.046641717845910674,
-      "confidence": 0.29664171784591065,
-      "rationale": "India VIX 17.52: VIX rose 0.6%, at the 81th percentile \u2014 fear is elevated, mean reversion favours upside.",
+      "score": -0.06458105065565384,
+      "confidence": 0.31458105065565384,
+      "rationale": "India VIX 17.56: VIX rose 0.8%, at the 81th percentile \u2014 fear is elevated, mean reversion favours upside.",
       "abstained": false,
       "weight": 0.0138,
-      "contribution": -0.0007,
+      "contribution": -0.0009,
       "hit_rate": 0.464,
       "sample": 9.77
     },
@@ -235,18 +235,18 @@
     }
   ],
   "market_data": {
-    "vix": 17.517499923706055,
-    "vix_change_pct": 0.56,
-    "vix_percentile": 80.55555555555556,
-    "atr_pct": 1.35,
-    "rsi": 79.3,
+    "vix": 17.55500030517578,
+    "vix_change_pct": 0.77,
+    "vix_percentile": 80.95238095238095,
+    "atr_pct": 1.34,
+    "rsi": 80.1,
     "adx": 37.0,
     "realized_vol": 15.47,
     "source": "yahoo"
   },
   "option_chain": null,
   "learning": {
-    "runs": 131,
+    "runs": 132,
     "resolved": 212,
     "resolved_this_run": 0,
     "regime": "mid_vol",
@@ -1260,8 +1260,8 @@
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-11T16:15:00+05:30",
-    "label": "11 Nov, 04:15 PM IST"
+    "at": "2026-11-12T08:15:00+05:30",
+    "label": "12 Nov, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
