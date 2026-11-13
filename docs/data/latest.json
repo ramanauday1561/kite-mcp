@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T15:31:52.750245+05:30",
-  "generated_at_ist": "13 Nov 2026, 03:31 PM IST",
+  "generated_at": "2026-11-13T17:30:09.554509+05:30",
+  "generated_at_ist": "13 Nov 2026, 05:30 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-13",
   "spot": 25144.3,
@@ -15,7 +15,7 @@
     "calibration_basis": "0 resolved signals in this score band (observed 0% up)"
   },
   "ensemble": {
-    "score": 0.6593,
+    "score": 0.6592,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 9,
@@ -31,7 +31,7 @@
       "adx_di": 0.0654,
       "bollinger": 0.0061,
       "volatility_regime": 0.0069,
-      "price_action": -0.0046,
+      "price_action": -0.0047,
       "momentum_roc": 0.1599,
       "seasonality": 0.0014
     }
@@ -44,23 +44,23 @@
     "atm_strike": 25150.0,
     "expiry": "2026-11-17",
     "days_to_expiry": 4,
-    "iv_used_pct": 15.53,
-    "theoretical_premium": 123.29,
-    "delta": 0.4184,
-    "gamma": 0.000955,
-    "theta_per_day": -21.82,
+    "iv_used_pct": 15.49,
+    "theoretical_premium": 122.88,
+    "delta": 0.4182,
+    "gamma": 0.000957,
+    "theta_per_day": -21.76,
     "vega": 10.28,
-    "atm_premium": 169.27,
-    "stop_loss": 80.14,
-    "target": 203.43,
+    "atm_premium": 168.85,
+    "stop_loss": 79.87,
+    "target": 202.75,
     "lot_size": 75,
     "suggested_lots": 0,
     "capital_at_risk": 0.0,
     "premium_outlay": 0.0,
     "capital_deployed_pct": 0.0,
-    "breakeven": 25373.29,
+    "breakeven": 25372.88,
     "notes": [
-      "Theta burns about Rs 21.8 per day per unit (Rs 1,636 per lot) \u2014 this is a 4-day view, not a hold."
+      "Theta burns about Rs 21.8 per day per unit (Rs 1,632 per lot) \u2014 this is a 4-day view, not a hold."
     ]
   },
   "expiry": {
@@ -132,7 +132,7 @@
     {
       "name": "adx_di",
       "label": "ADX Directional Strength",
-      "score": 0.5569635876387881,
+      "score": 0.5570921765419499,
       "confidence": 1.0,
       "rationale": "ADX 40 signals a strong trend; +DI 44 vs -DI 12 favours the upside.",
       "abstained": false,
@@ -158,7 +158,7 @@
       "label": "India VIX Regime",
       "score": 0.6,
       "confidence": 0.85,
-      "rationale": "India VIX 15.53: VIX fell 6.5%, at the 69th percentile.",
+      "rationale": "India VIX 15.49: VIX fell 6.8%, at the 69th percentile.",
       "abstained": false,
       "weight": 0.0113,
       "contribution": 0.0069,
@@ -180,12 +180,12 @@
     {
       "name": "price_action",
       "label": "Candle & Volume Structure",
-      "score": -0.036474570972525044,
-      "confidence": 0.23647457097252506,
+      "score": -0.03735833535344335,
+      "confidence": 0.23735833535344336,
       "rationale": "Last close finished mid-range of the day's range (47%), gap -0.35%, OBV slope positive.",
       "abstained": false,
       "weight": 0.1241,
-      "contribution": -0.0046,
+      "contribution": -0.0047,
       "hit_rate": 0.5661,
       "sample": 15.67
     },
@@ -227,9 +227,9 @@
     }
   ],
   "market_data": {
-    "vix": 15.53499984741211,
-    "vix_change_pct": -6.53,
-    "vix_percentile": 69.04761904761905,
+    "vix": 15.494999885559082,
+    "vix_change_pct": -6.77,
+    "vix_percentile": 68.65079365079364,
     "atr_pct": 1.3,
     "rsi": 76.0,
     "adx": 39.9,
@@ -238,7 +238,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 137,
+    "runs": 138,
     "resolved": 214,
     "resolved_this_run": 0,
     "regime": "mid_vol",
@@ -1252,8 +1252,8 @@
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-13T16:15:00+05:30",
-    "label": "13 Nov, 04:15 PM IST"
+    "at": "2026-11-16T08:15:00+05:30",
+    "label": "16 Nov, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
