@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T17:30:09.554509+05:30",
-  "generated_at_ist": "13 Nov 2026, 05:30 PM IST",
+  "generated_at": "2026-11-13T23:35:53.503493+05:30",
+  "generated_at_ist": "13 Nov 2026, 11:35 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-13",
   "spot": 25144.3,
@@ -15,7 +15,7 @@
     "calibration_basis": "0 resolved signals in this score band (observed 0% up)"
   },
   "ensemble": {
-    "score": 0.6592,
+    "score": 0.6593,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 9,
@@ -31,7 +31,7 @@
       "adx_di": 0.0654,
       "bollinger": 0.0061,
       "volatility_regime": 0.0069,
-      "price_action": -0.0047,
+      "price_action": -0.0046,
       "momentum_roc": 0.1599,
       "seasonality": 0.0014
     }
@@ -132,7 +132,7 @@
     {
       "name": "adx_di",
       "label": "ADX Directional Strength",
-      "score": 0.5570921765419499,
+      "score": 0.5569635876387881,
       "confidence": 1.0,
       "rationale": "ADX 40 signals a strong trend; +DI 44 vs -DI 12 favours the upside.",
       "abstained": false,
@@ -180,12 +180,12 @@
     {
       "name": "price_action",
       "label": "Candle & Volume Structure",
-      "score": -0.03735833535344335,
-      "confidence": 0.23735833535344336,
+      "score": -0.036474570972525044,
+      "confidence": 0.23647457097252506,
       "rationale": "Last close finished mid-range of the day's range (47%), gap -0.35%, OBV slope positive.",
       "abstained": false,
       "weight": 0.1241,
-      "contribution": -0.0047,
+      "contribution": -0.0046,
       "hit_rate": 0.5661,
       "sample": 15.67
     },
@@ -238,7 +238,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 138,
+    "runs": 139,
     "resolved": 214,
     "resolved_this_run": 0,
     "regime": "mid_vol",
