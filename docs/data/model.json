@@ -1,7 +1,7 @@
 {
-  "runs": 140,
+  "runs": 141,
   "resolved": 215,
-  "updated_at": "2026-11-13T18:05:56.877859+00:00",
+  "updated_at": "2026-11-16T10:11:23.820554+00:00",
   "regime": "mid_vol",
   "strategy_stats": {
     "ema_trend": {
