@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-18T16:15:48.244745+05:30",
-  "generated_at_ist": "18 Nov 2026, 04:15 PM IST",
+  "generated_at": "2026-11-18T18:21:15.006978+05:30",
+  "generated_at_ist": "18 Nov 2026, 06:21 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-18",
   "spot": 25227.95,
@@ -238,7 +238,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 146,
+    "runs": 147,
     "resolved": 217,
     "resolved_this_run": 0,
     "regime": "mid_vol",
