@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-24T20:11:29.285419+05:30",
-  "generated_at_ist": "24 Nov 2026, 08:11 PM IST",
+  "generated_at": "2026-11-25T02:22:46.219448+05:30",
+  "generated_at_ist": "25 Nov 2026, 02:22 AM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-23",
   "spot": 25349.65,
@@ -43,37 +43,37 @@
     "strike": 25550.0,
     "atm_strike": 25350.0,
     "expiry": "2026-12-01",
-    "days_to_expiry": 7,
+    "days_to_expiry": 6,
     "iv_used_pct": 17.7,
-    "theoretical_premium": 173.48,
-    "delta": 0.3982,
-    "gamma": 0.000621,
-    "theta_per_day": -18.89,
-    "vega": 13.55,
-    "atm_premium": 263.66,
-    "stop_loss": 112.76,
-    "target": 286.24,
+    "theoretical_premium": 154.02,
+    "delta": 0.3865,
+    "gamma": 0.000665,
+    "theta_per_day": -20.06,
+    "vega": 12.44,
+    "atm_premium": 242.98,
+    "stop_loss": 100.11,
+    "target": 254.13,
     "lot_size": 75,
     "suggested_lots": 0,
     "capital_at_risk": 0.0,
     "premium_outlay": 0.0,
     "capital_deployed_pct": 0.0,
-    "breakeven": 25723.48,
+    "breakeven": 25704.02,
     "notes": [
       "IV is rich (percentile 81) \u2014 a 25550/25750 debit spread cuts the vega bleed versus a naked long.",
-      "Theta burns about Rs 18.9 per day per unit (Rs 1,417 per lot) \u2014 this is a 7-day view, not a hold."
+      "Theta burns about Rs 20.1 per day per unit (Rs 1,504 per lot) \u2014 this is a 6-day view, not a hold."
     ],
     "short_leg": {
       "strike": 25750.0,
-      "premium": 107.56,
-      "delta": 0.2823
+      "premium": 91.02,
+      "delta": 0.2637
     },
-    "net_debit": 65.92,
-    "max_profit": 134.08
+    "net_debit": 63.0,
+    "max_profit": 137.0
   },
   "expiry": {
     "date": "2026-12-01",
-    "days_to_expiry": 7,
+    "days_to_expiry": 6,
     "source": "calculated"
   },
   "votes": [
@@ -152,7 +152,7 @@
     {
       "name": "price_action",
       "label": "Candle & Volume Structure",
-      "score": -0.40538343181129444,
+      "score": -0.40538343181129455,
       "confidence": 0.6053834318112945,
       "rationale": "Last close finished near the low of the day's range (1%), gap +0.50%, OBV slope positive.",
       "abstained": false,
@@ -246,7 +246,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 159,
+    "runs": 160,
     "resolved": 221,
     "resolved_this_run": 0,
     "regime": "mid_vol",
