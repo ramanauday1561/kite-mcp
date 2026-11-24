@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-24T03:44:40.717749+05:30",
-  "generated_at_ist": "24 Nov 2026, 03:44 AM IST",
+  "generated_at": "2026-11-24T18:27:27.132389+05:30",
+  "generated_at_ist": "24 Nov 2026, 06:27 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-23",
   "spot": 25349.65,
@@ -9,13 +9,13 @@
   "recommendation": {
     "action": "CALL",
     "bias": "CALL",
-    "confidence": 0.8168,
-    "probability_up": 0.8168,
+    "confidence": 0.8159,
+    "probability_up": 0.8159,
     "reason": "Ensemble score +0.48 calibrates to a 82% chance of an up move \u2014 high conviction.",
     "calibration_basis": "4 resolved signals in this score band (observed 88% up)"
   },
   "ensemble": {
-    "score": 0.4848,
+    "score": 0.4815,
     "participation": 0.846,
     "active": 11,
     "bullish_votes": 8,
@@ -31,7 +31,7 @@
       "adx_di": 0.0721,
       "bollinger": 0.0042,
       "volatility_regime": -0.0025,
-      "price_action": -0.0488,
+      "price_action": -0.0521,
       "momentum_roc": 0.0671,
       "seasonality": -0.0007
     }
@@ -45,31 +45,31 @@
     "expiry": "2026-12-01",
     "days_to_expiry": 7,
     "iv_used_pct": 17.7,
-    "theoretical_premium": 173.44,
+    "theoretical_premium": 173.48,
     "delta": 0.3982,
     "gamma": 0.000621,
     "theta_per_day": -18.89,
     "vega": 13.55,
-    "atm_premium": 263.62,
-    "stop_loss": 112.74,
-    "target": 286.18,
+    "atm_premium": 263.66,
+    "stop_loss": 112.76,
+    "target": 286.24,
     "lot_size": 75,
     "suggested_lots": 0,
     "capital_at_risk": 0.0,
     "premium_outlay": 0.0,
     "capital_deployed_pct": 0.0,
-    "breakeven": 25723.44,
+    "breakeven": 25723.48,
     "notes": [
       "IV is rich (percentile 81) \u2014 a 25550/25750 debit spread cuts the vega bleed versus a naked long.",
       "Theta burns about Rs 18.9 per day per unit (Rs 1,417 per lot) \u2014 this is a 7-day view, not a hold."
     ],
     "short_leg": {
       "strike": 25750.0,
-      "premium": 107.53,
-      "delta": 0.2822
+      "premium": 107.56,
+      "delta": 0.2823
     },
-    "net_debit": 65.91,
-    "max_profit": 134.09
+    "net_debit": 65.92,
+    "max_profit": 134.08
   },
   "expiry": {
     "date": "2026-12-01",
@@ -152,12 +152,12 @@
     {
       "name": "price_action",
       "label": "Candle & Volume Structure",
-      "score": -0.37958195062435673,
-      "confidence": 0.5795819506243567,
+      "score": -0.40538343181129444,
+      "confidence": 0.6053834318112945,
       "rationale": "Last close finished near the low of the day's range (1%), gap +0.50%, OBV slope positive.",
       "abstained": false,
       "weight": 0.1251,
-      "contribution": -0.0488,
+      "contribution": -0.0521,
       "hit_rate": 0.5567,
       "sample": 15.63
     },
@@ -188,8 +188,8 @@
     {
       "name": "volatility_regime",
       "label": "India VIX Regime",
-      "score": -0.18163036023341014,
-      "confidence": 0.43163036023341017,
+      "score": -0.18283346555561772,
+      "confidence": 0.43283346555561775,
       "rationale": "India VIX 17.70: VIX rose 2.2%, at the 81th percentile \u2014 fear is elevated, mean reversion favours upside.",
       "abstained": false,
       "weight": 0.0135,
@@ -235,8 +235,8 @@
     }
   ],
   "market_data": {
-    "vix": 17.697500228881836,
-    "vix_change_pct": 2.18,
+    "vix": 17.700000762939453,
+    "vix_change_pct": 2.19,
     "vix_percentile": 80.95238095238095,
     "atr_pct": 1.37,
     "rsi": 67.0,
@@ -246,9 +246,9 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 157,
+    "runs": 158,
     "resolved": 221,
-    "resolved_this_run": 1,
+    "resolved_this_run": 0,
     "regime": "mid_vol",
     "strategy_stats": {
       "ema_trend": {
@@ -1254,14 +1254,14 @@
     ]
   },
   "storage": {
-    "archived_this_run": 1,
+    "archived_this_run": 0,
     "total_archived": 222,
     "csv": "data/signals.csv",
     "note": "Every signal is appended to a permanent month-by-month archive in the repository and exported as CSV. The rolling JSON files are trimmed for page weight; the archive and CSV are not."
   },
   "next_update": {
-    "at": "2026-11-24T08:15:00+05:30",
-    "label": "24 Nov, 08:15 AM IST"
+    "at": "2026-11-25T08:15:00+05:30",
+    "label": "25 Nov, 08:15 AM IST"
   },
   "data_quality": {
     "candles": 400,
@@ -1270,7 +1270,6 @@
     "option_chain_available": false,
     "notes": [
       "nse option chain http 404",
-      "resolved 1 prediction(s) and updated the model",
       "LLM panel off: LLM_API_KEY not set (set it as a repo secret to enable)"
     ]
   },
