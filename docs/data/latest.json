@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-25T17:15:28.093794+05:30",
-  "generated_at_ist": "25 Nov 2026, 05:15 PM IST",
+  "generated_at": "2026-11-25T19:33:45.353601+05:30",
+  "generated_at_ist": "25 Nov 2026, 07:33 PM IST",
   "index": "NIFTY 50",
   "session_date": "2026-11-25",
   "spot": 25819.25,
@@ -152,7 +152,7 @@
     {
       "name": "price_action",
       "label": "Candle & Volume Structure",
-      "score": 0.5139597875244541,
+      "score": 0.513959787524454,
       "confidence": 0.7139597875244541,
       "rationale": "Last close finished mid-range of the day's range (60%), gap +1.22%, OBV slope positive.",
       "abstained": false,
@@ -246,7 +246,7 @@
   },
   "option_chain": null,
   "learning": {
-    "runs": 161,
+    "runs": 162,
     "resolved": 221,
     "resolved_this_run": 0,
     "regime": "mid_vol",
